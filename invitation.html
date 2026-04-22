@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariage de Shany & Benjamin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --gold-main: #4A3728; --gold-light: #D2B48C; --bg-creme: #FFFEFA; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cormorant Garamond', serif; background-color: var(--bg-creme); color: #333; overflow-x: hidden; }
+        .main-wrapper { max-width: 600px; margin: 0 auto; padding: 40px 10px; display: flex; flex-direction: column; gap: 60px; }
+        .card { padding: 60px 25px; background-color: #fff; border: 1px solid var(--gold-main); text-align: center; opacity: 0; transform: translateY(50px); transition: 0.9s; }
+        .card.active { opacity: 1; transform: translateY(0); }
+        .couple-names { font-family: 'Great Vibes', cursive; color: var(--gold-main); font-size: 3.5rem; margin: 10px 0; display: block; }
+        h3 { font-family: 'Cinzel', serif; letter-spacing: 3px; color: var(--gold-main); text-transform: uppercase; margin-bottom: 15px; }
+        .divider { width: 60px; height: 1px; background: var(--gold-main); margin: 25px auto; }
+        .btn-waze { display: inline-block; margin-top: 25px; color: var(--gold-main); border-bottom: 1px solid var(--gold-main); text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; background: none; border-top: none; border-left: none; border-right: none; }
+        .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: var(--gold-main); text-transform: uppercase; margin-top: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: none; border-bottom: 2px solid var(--gold-main); background: transparent; margin-bottom: 10px; }
+        .btn-submit { background: var(--gold-main); color: #fff; border: none; padding: 20px; width: 100%; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <div id="mairie" class="card">
+            <h3>Cérémonie Civile</h3>
+            <div class="couple-names">Shany & Benjamin</div>
+            <p>se diront "oui" le</p>
+            <div class="divider"></div>
+            <p style="font-weight: 900;">Mardi 6 Octobre 2026</p>
+            <p>Mairie de Gournay-sur-Marne</p>
+            <a href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" class="btn-waze">🚗 GPS WAZE</a>
+        </div>
+
+        <div id="houppa" class="card">
+            <img src="houppa.png" style="width: 100px; margin-bottom: 20px;">
+            <h3>Houppa & Soirée</h3>
+            <p>Mme Dray Sylvie Esther & Mme Lacides Cathy Esther remercient Hachem de vous convier au mariage de leurs enfants le :</p>
+            <div class="divider"></div>
+            <p style="font-weight: 900;">Jeudi 8 Octobre 2026 à 17H30</p>
+            <p><strong>Factory 58</strong><br>12 rue Gutenberg, 93000 Bobigny</p>
+            <p style="font-style: italic; margin-top: 25px; font-size: 0.9rem;">Une pensée émue pour nos chers disparus qui nous accompagnent de là-haut.</p>
+            <a href="https://waze.com/ul?q=12+rue+gutenberg+Bobigny" class="btn-waze">🚗 GPS WAZE</a>
+        </div>
+
+        <div id="rsvp" class="card">
+            <h3>Confirmation</h3>
+            <form id="rsvpForm" action="VOTRE_URL_GOOGLE_SCRIPT" method="POST">
+                <label class="form-label">Votre Nom & Prénom</label>
+                <input type="text" name="Nom_Prenom" required>
+
+                <label class="form-label">Présence à la Mairie ?</label>
+                <select name="Mairie_Presence" onchange="document.getElementById('m_qty').style.display = (this.value=='oui'?'block':'none')">
+                    <option value="non">Non</option><option value="oui">Oui</option>
+                </select>
+                <div id="m_qty" style="display:none;"><input type="number" name="Mairie_Nb" placeholder="Nombre de personnes"></div>
+
+                <label class="form-label">Présence à la Houppa ?</label>
+                <select name="Houppa_Presence" onchange="document.getElementById('h_qty').style.display = (this.value=='oui'?'block':'none')">
+                    <option value="non">Non</option><option value="oui">Oui</option>
+                </select>
+                <div id="h_qty" style="display:none;"><input type="number" name="Houppa_Nb" placeholder="Nombre de personnes"></div>
+
+                <label class="form-label">Message (Mazal Tov !)</label>
+                <textarea name="Message"></textarea>
+                <button type="submit" class="btn-submit">Valider ma réponse</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Animation d'apparition au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.card').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

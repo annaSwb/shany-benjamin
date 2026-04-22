@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shany & Benjamin | L'Union</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-light: #d2b48c; /* Beige New York */
+            --btn-grad-1: #4a3728; /* Marron Chic */
+            --btn-grad-2: #8b5e3c; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            background-color: #0a0a0a;
+            color: var(--gold-light);
+            font-family: 'Montserrat', sans-serif;
+            height: 100dvh; width: 100vw; 
+            overflow: hidden; 
+            display: flex; justify-content: center; align-items: center; 
+            text-align: center; position: relative;
+        }
+
+        .bg-image {
+            position: absolute; top: 0; left: 0; 
+            width: 100%; height: 100%; 
+            z-index: -1;
+            background: url('couple.jpeg') no-repeat center center / cover;
+            filter: brightness(0.5) saturate(0.7); 
+        }
+
+        .intro-container {
+            z-index: 1; 
+            opacity: 0; 
+            animation: fadeIn 2s ease-out forwards 0.5s;
+            width: 100%; padding: 0 20px;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 12vw, 5rem);
+            font-weight: 400;
+            margin-bottom: 5px;
+            color: var(--gold-light);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .countdown-container { 
+            display: flex; justify-content: center; 
+            gap: 12px; margin: 20px 0 30px 0; 
+        }
+
+        .unit {
+            width: 65px; height: 65px; 
+            background: rgba(0,0,0,0.6);
+            border: 1px solid var(--gold-light);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+
+        .num { font-size: 1.2rem; font-weight: 600; color: #fff; }
+        .label { font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .date {
+            font-size: 1rem; letter-spacing: 3px; 
+            padding: 10px 0; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light);
+            margin-bottom: 50px; 
+        }
+
+        .enter-btn {
+            padding: 20px 50px;
+            background: linear-gradient(45deg, var(--btn-grad-1), var(--btn-grad-2));
+            color: #fff;
+            border-radius: 50px; 
+            border: none; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
+            transition: 0.3s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        #invitation-frame {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; border: none; z-index: 100;
+            opacity: 0; transition: opacity 0.6s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-image"></div>
+    <audio id="bg-music" loop><source src="musique.mp3" type="audio/mpeg"></audio>
+
+    <div class="intro-container">
+        <h1>Shany & Benjamin</h1>
+        <div class="countdown-container" id="timer">
+            <div class="unit"><span class="num" id="days">00</span><span class="label">Jours</span></div>
+            <div class="unit"><span class="num" id="hours">00</span><span class="label">Hrs</span></div>
+            <div class="unit"><span class="num" id="mins">00</span><span class="label">Min</span></div>
+            <div class="unit"><span class="num" id="secs">00</span><span class="label">Sec</span></div>
+        </div>
+        <p class="date">8 OCTOBRE 2026</p>
+        <button class="enter-btn" id="btn-discover">Découvrir l'invitation</button>
+    </div>
+
+    <iframe id="invitation-frame"></iframe>
+
+    <script>
+        const targetDate = new Date("October 8, 2026 17:30:00").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime(), diff = targetDate - now;
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2, "0");
+                document.getElementById("hours").innerText = Math.floor((diff / (1000*60*60)) % 24).toString().padStart(2, "0");
+                document.getElementById("mins").innerText = Math.floor((diff / (1000*60)) % 60).toString().padStart(2, "0");
+                document.getElementById("secs").innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, "0");
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        const music = document.getElementById("bg-music");
+        document.addEventListener("click", () => music.play(), { once: true });
+
+        document.getElementById("btn-discover").addEventListener("click", function () {
+            music.play();
+            const frame = document.getElementById("invitation-frame");
+            frame.src = "invitation.html";
+            frame.style.display = "block";
+            setTimeout(() => frame.style.opacity = "1", 100);
+        });
+    </script>
+</body>
+</html>
