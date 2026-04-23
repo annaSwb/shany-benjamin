@@ -7,23 +7,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:          #2C1A0E;
-      --bg-section:  #241508;
-      --brown-deep:  #1A0A00;
-      --brown:       #C4922A;
-      --brown-mid:   #C4922A;
-      --brown-light: #C4922A;
-      --gold:        #C4922A;
-      --gold-light:  #D4A83A;
-      --text:        #F5ECD7;
-      --text-muted:  rgba(245,236,215,0.65);
+      --bg:          #3D2510;
+      --bg-section:  #3D2510;
+      /* On définit le texte en blanc pur */
+      --text:        #FFFFFF; 
+      --text-muted:  #E0E0E0;
+      /* On met les accents en blanc aussi pour éviter le doré */
+      --brown:       #FFFFFF;
+      --gold:        #FFFFFF;
+      --gold-light:  #FFFFFF;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html { scroll-behavior:smooth; }
     body {
       font-family:'Cormorant Garamond',serif;
-      background:#2C1A0E;
+      background:#3D2510;
       color:var(--text);
       overflow-x:hidden;
     }
@@ -86,7 +85,7 @@
     .parents-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
     .parent-card { border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.5); padding:14px 12px; text-align:left; position:relative; }
     .parent-card::before { content:''; position:absolute; top:0; left:16px; right:16px; height:1px; background:linear-gradient(to right, transparent, var(--gold-light), transparent); }
-    .parent-name { font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-style:italic; color:var(--text); line-height:1.4; }
+    .parent-name { font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-style:italic; color:var(--text); line-height:1.4; }
 
     /* Textes houppa */
     .hebrew { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--text-muted); letter-spacing:2px; margin-bottom:6px; position:relative; z-index:1; }
@@ -151,7 +150,7 @@
       width:100%; padding:18px;
       background:linear-gradient(135deg, #1A0A00 0%, #7B4B2A 55%, var(--gold) 100%);
       background-size:200%; animation:shimmer 4s ease infinite;
-      color:#F5ECD7; font-family:'Montserrat',sans-serif;
+      color:#FDF6E3; font-family:'Montserrat',sans-serif;
       font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; font-weight:600;
       border:none; border-radius:2px; cursor:pointer;
       box-shadow:0 8px 30px rgba(0,0,0,0.4);
@@ -195,18 +194,11 @@
   <div class="section-inner">
     <p class="eyebrow reveal" style="font-size:0.65rem; letter-spacing:5px;">✦ Cérémonie Civile ✦</p>
 
-    
-
     <div class="deco reveal reveal-delay-2">
       <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
     </div>
 
     <div class="couple-names reveal reveal-delay-2">Shany & Benjamin</div>
-
-    <div class="hebrew-names reveal reveal-delay-2">
-      <span class="hebrew-name-item">שני</span>
-      <span class="hebrew-name-item">בנימין</span>
-    </div>
 
     <div class="oui-wrap reveal reveal-delay-3">
       <p class="oui-label">se diront</p>
@@ -244,10 +236,10 @@
 
     <div class="parents-row reveal">
       <div class="parent-card">
-        <p class="parent-name">Mme Dray<br>Sylvie Esther</p>
+        <p class="parent-name">Mme Dray · Sylvie Esther</p>
       </div>
       <div class="parent-card">
-        <p class="parent-name">Mme Lacides<br>Cathy Esther</p>
+        <p class="parent-name">Mme Lacides · Cathy Esther</p>
       </div>
     </div>
 
@@ -256,12 +248,10 @@
     <div class="deco reveal">
       <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
     </div>
+<br>
+    <div class="couple-names reveal">Shany & Benjamin</div>
 
-    <div class="couple-names reveal">Shany</div>
-    <p class="hebrew reveal" style="margin-bottom:2px;">שני</p>
-    <p class="hashem reveal" style="font-size:0.7rem; letter-spacing:3px; font-family:'Montserrat',sans-serif; color:var(--gold); margin-bottom:4px;">&amp;</p>
-    <div class="couple-names reveal">Benjamin</div>
-    <p class="hebrew reveal">בנימין</p>
+    <p class="hebrew reveal" style="margin-bottom:10px;">שני & בנימין</p>
 
     <p class="hashem reveal">remercient Hachem de vous convier<br>à la célébration de leur union</p>
 
