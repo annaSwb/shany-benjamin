@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold-light: #d2b48c; /* Beige New York */
-            --btn-grad-1: #4a3728; /* Marron Chic */
+            --gold-light: #d2b48c;
+            --btn-grad-1: #4a3728;
             --btn-grad-2: #8b5e3c; 
         }
 
@@ -36,22 +36,40 @@
             z-index: 1; 
             opacity: 0; 
             animation: fadeIn 2s ease-out forwards 0.5s;
-            width: 100%; padding: 0 20px;
+            width: 100%; height: 100dvh;
+            padding: 20px;
             display: flex; flex-direction: column; align-items: center;
+            /* Espace les éléments : Titre en haut, Compte à rebours/Bouton en bas */
+            justify-content: space-between; 
         }
+
+        .header-content { margin-top: 10vh; }
 
         h1 {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(3rem, 12vw, 5rem);
             font-weight: 400;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: var(--gold-light);
             text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
         }
 
+        .date {
+            font-size: 1.1rem; letter-spacing: 4px; 
+            padding: 10px 0; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light);
+            text-transform: uppercase;
+        }
+
+        /* Conteneur groupe le compte à rebours et le bouton en bas */
+        .footer-content {
+            display: flex; flex-direction: column; align-items: center;
+            margin-bottom: 8vh;
+            width: 100%;
+        }
+
         .countdown-container { 
             display: flex; justify-content: center; 
-            gap: 12px; margin: 20px 0 30px 0; 
+            gap: 12px; margin-bottom: 30px; 
         }
 
         .unit {
@@ -65,12 +83,6 @@
 
         .num { font-size: 1.2rem; font-weight: 600; color: #fff; }
         .label { font-size: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        .date {
-            font-size: 1rem; letter-spacing: 3px; 
-            padding: 10px 0; border-top: 1px solid var(--gold-light); border-bottom: 1px solid var(--gold-light);
-            margin-bottom: 50px; 
-        }
 
         .enter-btn {
             padding: 20px 50px;
@@ -96,15 +108,20 @@
     <audio id="bg-music" loop><source src="musique.mp3" type="audio/mpeg"></audio>
 
     <div class="intro-container">
-        <h1>Shany & Benjamin</h1>
-        <div class="countdown-container" id="timer">
-            <div class="unit"><span class="num" id="days">00</span><span class="label">Jours</span></div>
-            <div class="unit"><span class="num" id="hours">00</span><span class="label">Hrs</span></div>
-            <div class="unit"><span class="num" id="mins">00</span><span class="label">Min</span></div>
-            <div class="unit"><span class="num" id="secs">00</span><span class="label">Sec</span></div>
+        <div class="header-content">
+            <h1>Shany & Benjamin</h1>
+            <p class="date">8 OCTOBRE 2026</p>
         </div>
-        <p class="date">8 OCTOBRE 2026</p>
-        <button class="enter-btn" id="btn-discover">Découvrir l'invitation</button>
+        
+        <div class="footer-content">
+            <div class="countdown-container" id="timer">
+                <div class="unit"><span class="num" id="days">00</span><span class="label">Jours</span></div>
+                <div class="unit"><span class="num" id="hours">00</span><span class="label">Hrs</span></div>
+                <div class="unit"><span class="num" id="mins">00</span><span class="label">Min</span></div>
+                <div class="unit"><span class="num" id="secs">00</span><span class="label">Sec</span></div>
+            </div>
+            <button class="enter-btn" id="btn-discover">Découvrir l'invitation</button>
+        </div>
     </div>
 
     <iframe id="invitation-frame"></iframe>
@@ -124,7 +141,9 @@
         updateCountdown();
 
         const music = document.getElementById("bg-music");
-        document.addEventListener("click", () => music.play(), { once: true });
+        document.addEventListener("click", () => {
+            if(music.paused) music.play();
+        }, { once: true });
 
         document.getElementById("btn-discover").addEventListener("click", function () {
             music.play();

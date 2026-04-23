@@ -7,34 +7,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:          #F7F0E3;
-      --bg-section:  #F0E6D0;
-      --brown-deep:  #2C1A0E;
-      --brown:       #4A2C1A;
-      --brown-mid:   #7B4B2A;
-      --brown-light: #A0693A;
-      --gold:        #8B6914;
-      --gold-light:  #C4922A;
-      --text:        #2C1A0E;
-      --text-muted:  rgba(44,26,14,0.5);
+      --bg:          #2C1A0E;
+      --bg-section:  #241508;
+      --brown-deep:  #1A0A00;
+      --brown:       #C4922A;
+      --brown-mid:   #C4922A;
+      --brown-light: #C4922A;
+      --gold:        #C4922A;
+      --gold-light:  #D4A83A;
+      --text:        #F5ECD7;
+      --text-muted:  rgba(245,236,215,0.65);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html { scroll-behavior:smooth; }
-    body { font-family:'Cormorant Garamond',serif; background:var(--bg); color:var(--text); overflow-x:hidden; }
-    body::before {
-      content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:0.04;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size:200px;
+    body {
+      font-family:'Cormorant Garamond',serif;
+      background:#2C1A0E;
+      color:var(--text);
+      overflow-x:hidden;
     }
 
+    
+    
+
     /* ORNEMENTS */
-    .deco { display:flex; align-items:center; justify-content:center; gap:10px; margin:16px 0; }
+    .deco { display:flex; align-items:center; justify-content:center; gap:10px; margin:16px 0; position:relative; z-index:1; }
     .deco-line { flex:1; max-width:70px; height:1px; }
     .deco-line.l { background:linear-gradient(to right, transparent, var(--gold)); }
     .deco-line.r { background:linear-gradient(to left,  transparent, var(--gold)); }
     .deco-diamond { width:7px; height:7px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
-    .eyebrow { font-family:'Montserrat',sans-serif; font-size:0.5rem; letter-spacing:6px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+    .eyebrow { font-family:'Montserrat',sans-serif; font-size:0.5rem; letter-spacing:6px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; position:relative; z-index:1; }
     .section-sep { width:100%; height:2px; background:linear-gradient(to right, transparent, var(--brown-light), transparent); }
 
     /* REVEAL */
@@ -45,16 +48,7 @@
     .reveal-delay-3 { transition-delay:0.3s; }
 
     /* SECTIONS */
-    section { background:var(--bg); padding:70px 24px 60px; text-align:center; position:relative; overflow:hidden; }
-    section:nth-child(odd) { background:var(--bg-section); }
-    #reponses { background:var(--bg-section); }
-
-    /* Skyline watermark */
-    #mairie::before, #houppa::before {
-      content:''; position:absolute; bottom:0; left:0; right:0; height:55%; pointer-events:none;
-      background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='xMidYMax meet'%3E%3Cpath fill='%234A2C1A' d='M0,300V200l15,0 0-20 10,0 0-20 10,0 0-12 8,0 0-14 6,0 0-12 4,0 0-12 4,0 4,12 4,0 4,12 0,12 6,0 0,12 8,0 0,14 10,0 0,20 10,0 0,20 15,0V300zm120,0V190l12,0 0-16 8,0 0-18 6,0 0-14 4,0 0-10 4,0 0-10 4,0 4,10 4,0 4,10 0,14 6,0 0,18 8,0 0,16 12,0V300zm110,0V180l14,0 0-22 10,0 0-20 8,0 0-16 5,0 0-12 5,0 0-8 5,0 5,8 5,0 5,12 0,16 8,0 0,20 10,0 0,22 14,0V300zm120,0V195l10,0 0-18 8,0 0-16 6,0 0-13 5,0 0-11 4,0 4,11 4,0 0,13 6,0 0,16 8,0 0,18 10,0V300zm100,0V185l12,0 0-20 9,0 0-18 7,0 0-15 5,0 0-10 5,0 5,10 5,0 0,15 7,0 0,18 9,0 0,20 12,0V300zm120,0V190l14,0 0-22 10,0 0-18 7,0 0-14 5,0 0-10 5,0 0-8 5,0 5,8 5,0 0,10 5,0 0,14 7,0 0,18 10,0 0,22 14,0V300zm115,0V180l12,0 0-20 9,0 0-22 7,0 0-18 5,0 0-12 5,0 0-8 5,0 5,8 5,0 5,12 0,18 7,0 0,22 9,0 0,20 12,0V300zm120,0V195l10,0 0-16 8,0 0-18 6,0 0-14 5,0 0-10 4,0 4,10 5,0 0,14 6,0 0,18 8,0 0,16 10,0V300zm110,0V185l14,0 0-22 10,0 0-20 8,0 0-14 5,0 0-10 5,0 5,10 5,0 0,14 8,0 0,20 10,0 0,22 14,0V300z'/%3E%3C/svg%3E") no-repeat bottom center / cover;
-      opacity:0.05;
-    }
+    section { background:transparent; padding:70px 24px 60px; text-align:center; position:relative; overflow:hidden; }
 
     .section-inner { position:relative; z-index:1; max-width:480px; margin:0 auto; }
 
@@ -74,33 +68,40 @@
     .couple-names {
       font-family:'Great Vibes',cursive;
       font-size:clamp(2.8rem,12vw,4.5rem);
-      color:var(--brown); line-height:1; margin:6px 0;
+      color:var(--gold); line-height:1; margin:6px 0;
+      position:relative; z-index:1;
     }
 
     /* OUI */
-    .oui-wrap { margin:10px 0 14px; }
-    .oui-label { font-family:'Montserrat',sans-serif; font-size:0.52rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px; }
-    .oui-big { font-family:'Cinzel',serif; font-size:2rem; font-weight:700; letter-spacing:8px; color:var(--brown); text-transform:uppercase; }
+    .oui-wrap { margin:6px 0 10px; position:relative; z-index:1; }
+    .oui-label { font-family:'Montserrat',sans-serif; font-size:0.52rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
+    .oui-big { font-family:'Cinzel',serif; font-size:2rem; font-weight:700; letter-spacing:8px; color:var(--gold); text-transform:uppercase; }
 
     /* Date pill & lieu */
-    .date-pill { display:inline-block; padding:9px 26px; border:1px solid var(--brown-light); font-family:'Montserrat',sans-serif; font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; color:var(--brown); margin:14px 0; }
-    .venue-name { font-family:'Cinzel',serif; font-size:1rem; letter-spacing:3px; text-transform:uppercase; color:var(--brown); margin-bottom:5px; }
-    .venue-addr { font-style:italic; font-size:0.9rem; color:var(--text-muted); line-height:1.6; }
+    .date-pill { display:inline-block; padding:9px 26px; border:1px solid var(--gold); font-family:'Montserrat',sans-serif; font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; color:var(--text); margin:14px 0; position:relative; z-index:1; }
+    .venue-name { font-family:'Cinzel',serif; font-size:1rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; position:relative; z-index:1; }
+    .venue-addr { font-style:italic; font-size:0.9rem; color:var(--text-muted); line-height:1.6; position:relative; z-index:1; }
 
     /* Parents (houppa) */
-    .parents-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:32px; }
-    .parent-card { border:1px solid rgba(74,44,26,0.15); background:rgba(74,44,26,0.04); padding:14px 12px; text-align:left; position:relative; }
+    .parents-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
+    .parent-card { border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.5); padding:14px 12px; text-align:left; position:relative; }
     .parent-card::before { content:''; position:absolute; top:0; left:16px; right:16px; height:1px; background:linear-gradient(to right, transparent, var(--gold-light), transparent); }
-    .parent-side { font-family:'Montserrat',sans-serif; font-size:0.44rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; }
-    .parent-name { font-family:'Cormorant Garamond',serif; font-size:0.92rem; font-style:italic; color:var(--brown); line-height:1.4; }
+    .parent-name { font-family:'Cormorant Garamond',serif; font-size:0.82rem; font-style:italic; color:var(--text); line-height:1.4; }
 
     /* Textes houppa */
-    .hebrew { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--text-muted); letter-spacing:2px; margin-bottom:6px; }
-    .hashem { font-style:italic; font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin:10px 0 18px; }
-    .in-memo { font-style:italic; font-size:0.78rem; color:var(--text-muted); margin-top:24px; line-height:1.7; }
+    .hebrew { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--text-muted); letter-spacing:2px; margin-bottom:6px; position:relative; z-index:1; }
+    .hashem { font-style:italic; font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin:10px 0 18px; position:relative; z-index:1; }
+    .in-memo { font-style:italic; font-size:0.78rem; color:var(--text-muted); margin-top:24px; line-height:1.7; position:relative; z-index:1; }
+    .hodou { font-family:'Cormorant Garamond',serif; font-size:0.9rem; font-style:italic; color:var(--gold); letter-spacing:1px; margin-bottom:20px; line-height:1.7; position:relative; z-index:1; }
+    .convier-txt { font-style:italic; font-size:0.92rem; color:var(--text-muted); line-height:1.7; margin:8px 0 16px; position:relative; z-index:1; }
+    .tsniout { font-family:'Montserrat',sans-serif; font-size:0.42rem; letter-spacing:3px; text-transform:uppercase; color:var(--text-muted); opacity:0.6; margin-top:20px; position:relative; z-index:1; }
+
+    /* Noms hébreux séparés */
+    .hebrew-names { display:flex; justify-content:center; gap:32px; margin:4px 0 10px; position:relative; z-index:1; }
+    .hebrew-name-item { font-family:'Cormorant Garamond',serif; font-size:0.85rem; font-style:italic; color:var(--text-muted); letter-spacing:1px; }
 
     /* Buttons */
-    .btn-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; }
+    .btn-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; position:relative; z-index:1; }
     .btn-waze {
       display:inline-flex; align-items:center; gap:7px; padding:11px 20px;
       background:#05C8F7; color:#000; text-decoration:none;
@@ -110,47 +111,53 @@
     .btn-waze:hover { filter:brightness(1.1); transform:translateY(-1px); }
     .btn-cal {
       display:inline-flex; align-items:center; gap:7px; padding:11px 20px;
-      background:transparent; border:1px solid var(--brown-light); color:var(--brown);
+      background:transparent; border:1px solid var(--gold); color:var(--text);
       font-family:'Montserrat',sans-serif; font-size:0.56rem; letter-spacing:3px; text-transform:uppercase;
       border-radius:2px; cursor:pointer; transition:background .2s, transform .2s;
     }
-    .btn-cal:hover { background:rgba(74,44,26,0.08); transform:translateY(-1px); }
+    .btn-cal:hover { background:rgba(196,146,42,0.15); transform:translateY(-1px); }
+
+    /* Nav tabs */
+    .nav-tabs { display:flex; justify-content:center; gap:0; position:sticky; top:0; z-index:100; background:rgba(28,12,2,0.9); border-bottom:1px solid rgba(196,146,42,0.25); }
+    .nav-tab { padding:14px 20px; font-family:'Montserrat',sans-serif; font-size:0.48rem; letter-spacing:4px; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border-bottom:2px solid transparent; transition:all .2s; cursor:pointer; background:none; border-top:none; border-left:none; border-right:none; }
+    .nav-tab:hover, .nav-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
 
     /* FORMULAIRE */
-    .form-inner { max-width:480px; margin:0 auto; text-align:left; }
+    .form-inner { max-width:480px; margin:0 auto; text-align:left; position:relative; z-index:1; }
     .field-block { margin-bottom:18px; }
     .field-label { display:block; font-family:'Montserrat',sans-serif; font-size:0.5rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:7px; }
     .field-input, .field-textarea {
-      width:100%; padding:13px 14px; background:#fff;
-      border:1px solid rgba(74,44,26,0.2); outline:none;
+      width:100%; padding:13px 14px; background:rgba(28,12,2,0.7);
+      border:1px solid rgba(196,146,42,0.3); outline:none;
       font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--text);
       transition:border-color .2s; -webkit-appearance:none;
     }
-    .field-input:focus, .field-textarea:focus { border-color:var(--brown-light); }
+    .field-input::placeholder, .field-textarea::placeholder { color:var(--text-muted); }
+    .field-input:focus, .field-textarea:focus { border-color:var(--gold); }
     .field-textarea { resize:vertical; min-height:90px; }
     .sub-field { display:none; margin-top:10px; }
     .sub-field.show { display:block; }
     .radio-row { display:flex; gap:10px; }
     .radio-btn {
       flex:1; padding:12px 0; text-align:center;
-      border:1px solid rgba(74,44,26,0.2); background:#fff;
+      border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.5);
       font-family:'Montserrat',sans-serif; font-size:0.52rem; letter-spacing:3px;
       text-transform:uppercase; color:var(--text-muted);
       cursor:pointer; border-radius:2px; transition:all .2s;
     }
-    .radio-btn.active { background:var(--brown); border-color:var(--brown); color:#F0E6D0; }
-    .form-sep { width:100%; height:1px; background:linear-gradient(to right, transparent, rgba(74,44,26,0.15), transparent); margin:24px 0; }
+    .radio-btn.active { background:var(--gold); border-color:var(--gold); color:#1A0A00; }
+    .form-sep { width:100%; height:1px; background:linear-gradient(to right, transparent, rgba(196,146,42,0.2), transparent); margin:24px 0; }
     .submit-btn {
       width:100%; padding:18px;
-      background:linear-gradient(135deg, var(--brown-deep) 0%, var(--brown-mid) 55%, var(--brown-light) 100%);
+      background:linear-gradient(135deg, #1A0A00 0%, #7B4B2A 55%, var(--gold) 100%);
       background-size:200%; animation:shimmer 4s ease infinite;
       color:#F5ECD7; font-family:'Montserrat',sans-serif;
       font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; font-weight:600;
       border:none; border-radius:2px; cursor:pointer;
-      box-shadow:0 8px 30px rgba(44,26,14,0.25);
+      box-shadow:0 8px 30px rgba(0,0,0,0.4);
       transition:transform .2s, box-shadow .2s; position:relative; overflow:hidden; margin-top:8px;
     }
-    .submit-btn:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(44,26,14,0.35); }
+    .submit-btn:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(0,0,0,0.5); }
     .submit-btn:active { transform:scale(0.97); }
     .submit-btn::after {
       content:''; position:absolute; top:-50%; left:-70%; width:20%; height:200%;
@@ -160,29 +167,35 @@
     @keyframes shimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
     @keyframes shine   { 0%{left:-70%} 25%{left:130%} 100%{left:130%} }
 
-    .success-box { display:none; text-align:center; padding:36px 20px; border:1px solid rgba(74,44,26,0.18); background:#fff; }
-    .success-box h3 { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--brown); margin-bottom:10px; }
+    .success-box { display:none; text-align:center; padding:36px 20px; border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.7); }
+    .success-box h3 { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--gold); margin-bottom:10px; }
     .success-box p { font-style:italic; color:var(--text-muted); font-size:0.95rem; line-height:1.6; }
 
     /* FOOTER */
-    footer { background:var(--bg-section); padding:48px 24px 36px; text-align:center; }
-    .footer-names { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--brown); }
-    .footer-date { font-family:'Montserrat',sans-serif; font-size:0.48rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-top:10px; }
+    footer { background:rgba(28,12,2,0.85); padding:48px 24px 36px; text-align:center; position:relative; z-index:1; border-top:1px solid rgba(196,146,42,0.2); }
+    .footer-names { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--gold); position:relative; z-index:1; }
+    .footer-date { font-family:'Montserrat',sans-serif; font-size:0.48rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-top:10px; position:relative; z-index:1; }
+
+    p, h1, h2, h3 { position:relative; z-index:1; }
 
     @media(max-width:420px){ .parents-row { grid-template-columns:1fr; } }
   </style>
 </head>
 <body>
 
+<!-- Navigation -->
+<nav class="nav-tabs">
+  <a class="nav-tab active" href="#mairie" onclick="setActiveTab(this)">Mairie</a>
+  <a class="nav-tab" href="#houppa" onclick="setActiveTab(this)">Houppa</a>
+  <a class="nav-tab" href="#reponses" onclick="setActiveTab(this)">Participation</a>
+</nav>
+
 <!-- ── MAIRIE ── -->
 <section id="mairie">
   <div class="section-inner">
-    <p class="eyebrow reveal">✦ Cérémonie Civile ✦</p>
+    <p class="eyebrow reveal" style="font-size:0.65rem; letter-spacing:5px;">✦ Cérémonie Civile ✦</p>
 
-    <div class="photo-wrap reveal reveal-delay-1">
-      <img src="couple.jpeg" alt="Shany & Benjamin">
-      <div class="c1"></div><div class="c2"></div>
-    </div>
+    
 
     <div class="deco reveal reveal-delay-2">
       <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
@@ -190,12 +203,17 @@
 
     <div class="couple-names reveal reveal-delay-2">Shany & Benjamin</div>
 
-    <div class="oui-wrap reveal reveal-delay-3">
-      <p class="oui-label">se diront</p>
-      <p class="oui-big">Oui</p>
+    <div class="hebrew-names reveal reveal-delay-2">
+      <span class="hebrew-name-item">שני</span>
+      <span class="hebrew-name-item">בנימין</span>
     </div>
 
-    <div class="deco reveal">
+    <div class="oui-wrap reveal reveal-delay-3">
+      <p class="oui-label">se diront</p>
+      <p class="oui-big">« Oui »</p>
+    </div>
+
+    <div class="deco reveal" style="margin-top:18px;">
       <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
     </div>
 
@@ -222,23 +240,29 @@
 <section id="houppa">
   <div class="section-inner">
 
+    <p class="hodou reveal">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
+
     <div class="parents-row reveal">
       <div class="parent-card">
-        <p class="parent-side">Famille de Shany</p>
         <p class="parent-name">Mme Dray<br>Sylvie Esther</p>
       </div>
       <div class="parent-card">
-        <p class="parent-side">Famille de Benjamin</p>
-        <p class="parent-name">Mme Lacides<br>Cathy</p>
+        <p class="parent-name">Mme Lacides<br>Cathy Esther</p>
       </div>
     </div>
+
+    <p class="convier-txt reveal">ont la joie de vous convier au mariage de leurs enfants</p>
 
     <div class="deco reveal">
       <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
     </div>
 
-    <div class="couple-names reveal">Shany & Benjamin</div>
-    <p class="hebrew reveal">שני &amp; בנימין</p>
+    <div class="couple-names reveal">Shany</div>
+    <p class="hebrew reveal" style="margin-bottom:2px;">שני</p>
+    <p class="hashem reveal" style="font-size:0.7rem; letter-spacing:3px; font-family:'Montserrat',sans-serif; color:var(--gold); margin-bottom:4px;">&amp;</p>
+    <div class="couple-names reveal">Benjamin</div>
+    <p class="hebrew reveal">בנימין</p>
+
     <p class="hashem reveal">remercient Hachem de vous convier<br>à la célébration de leur union</p>
 
     <div class="deco reveal">
@@ -250,6 +274,8 @@
     <p class="venue-addr reveal">12 Rue Gutenberg<br>93000 Bobigny</p>
 
     <p class="in-memo reveal">Une pensée émue pour nos chers disparus<br>qui nous accompagnent de là-haut.</p>
+
+    <p class="tsniout reveal">✦ Tenue tsniout exigée ✦</p>
 
     <div class="btn-row reveal" style="margin-top:28px;">
       <a class="btn-waze" href="https://waze.com/ul?q=12+rue+gutenberg+Bobigny&navigate=yes" target="_blank">
@@ -272,7 +298,7 @@
   <div class="deco reveal" style="max-width:480px;margin:0 auto 10px;">
     <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
   </div>
-  <h2 class="reveal" style="font-family:'Cinzel',serif;text-align:center;letter-spacing:5px;font-size:1rem;text-transform:uppercase;color:var(--brown);margin-bottom:6px;">Réponses</h2>
+  <h2 class="reveal" style="font-family:'Cinzel',serif;text-align:center;letter-spacing:5px;font-size:1rem;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Réponses</h2>
   <p class="reveal" style="text-align:center;font-style:italic;color:var(--text-muted);font-size:0.85rem;margin-bottom:32px;">Merci de confirmer avant le 15 Septembre 2026</p>
 
   <div class="form-inner">
@@ -336,7 +362,6 @@
     <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
   </div>
   <p class="footer-names">Shany & Benjamin</p>
-  <p class="footer-date">08 · 10 · 2026 &nbsp;—&nbsp; Factory 58 · Bobigny</p>
   <div class="deco" style="max-width:480px;margin:14px auto 0;">
     <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
   </div>
@@ -347,6 +372,24 @@
     entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  function setActiveTab(el){
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Update active tab on scroll
+  window.addEventListener('scroll', () => {
+    const sections = ['mairie','houppa','reponses'];
+    let current = 'mairie';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if(el && el.getBoundingClientRect().top <= 100) current = id;
+    });
+    document.querySelectorAll('.nav-tab').forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === '#'+current);
+    });
+  });
 
   function setRadio(type, val){
     const prefix = type === 'mairie' ? 'm' : 'h';
@@ -367,7 +410,7 @@
   function addToCalendar(ev){
     const events = {
       civil:  { title:'Mariage Shany & Benjamin — Cérémonie Civile', start:'20261006T100000', end:'20261006T120000', loc:'Mairie de Gournay-sur-Marne, Place du Général de Gaulle, 93460 Gournay-sur-Marne', desc:'Cérémonie civile' },
-      houppa: { title:'Mariage Shany & Benjamin — Houppa & Soirée',  start:'20261008T173000', end:'20261009T020000', loc:'Factory 58, 12 Rue Gutenberg, 93000 Bobigny', desc:'Houppa · Soirée · Henné' }
+      houppa: { title:'Mariage Shany & Benjamin — Houppa & Soirée',  start:'20261008T173000', end:'20261009T020000', loc:'Factory 58, 12 Rue Gutenberg, 93000 Bobigny', desc:'Houppa · Soirée' }
     };
     const {title,start,end,loc,desc} = events[ev];
     const gc = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&location=${encodeURIComponent(loc)}&details=${encodeURIComponent(desc)}`;
