@@ -1,417 +1,424 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Shany & Benjamin | Invitation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:           #3D2510;       /* Fond brun chocolat */
-      --bg-section:   #3D2510;
-      
-      /* Couleurs "Beige Doré / Champagne" */
-      --text:         #DED0B6;       /* Beige clair pour les textes principaux */
-      --text-muted:   #B8A085;       /* Beige plus sombre pour les textes secondaires */
-      
-      /* Teinte or mat pour les accents et titres */
-      --gold:         #C5A67D;       
-      --gold-light:   #E2C8A5;       
-      --brown-light:  #7B4B2A;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shany & Benjamin – Mariage</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f9f0e8;
+    --peach: #f2dece;
+    --gold: #c8a96e;
+    --dark-gold: #a07840;
+    --burgundy: #8b3a2a;
+    --brown: #6b3020;
+    --text-dark: #4a2010;
+    --text-mid: #7a4030;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Cormorant Garamond', serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
-    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-    html { scroll-behavior:smooth; }
-    body {
-      font-family:'Cormorant Garamond',serif;
-      background:#3D2510;
-      color:var(--text);
-      overflow-x:hidden;
-    }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px; background: transparent;
+  }
+  .nav-logo { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--gold); text-decoration: none; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); border-radius: 2px; }
 
-    
-    
+  /* HERO */
+  #hero {
+    position: relative; min-height: 100vh; background: var(--peach);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding-bottom: 0;
+  }
 
-    /* ORNEMENTS */
-    .deco { display:flex; align-items:center; justify-content:center; gap:10px; margin:16px 0; position:relative; z-index:1; }
-    .deco-line { flex:1; max-width:70px; height:1px; }
-    .deco-line.l { background:linear-gradient(to right, transparent, var(--gold)); }
-    .deco-line.r { background:linear-gradient(to left,  transparent, var(--gold)); }
-    .deco-diamond { width:7px; height:7px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
-    .eyebrow { font-family:'Montserrat',sans-serif; font-size:0.5rem; letter-spacing:6px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; position:relative; z-index:1; }
-    .section-sep { width:100%; height:2px; background:linear-gradient(to right, transparent, var(--brown-light), transparent); }
+  /* ARCH avec countdown dessus */
+  .hero-arch-wrapper {
+    position: relative;
+    width: 88%; max-width: 340px;
+    margin-top: 70px;
+  }
+  .hero-arch {
+    width: 100%; height: 72vh;
+    border-radius: 9999px 9999px 0 0; overflow: hidden; border: 2px solid var(--gold);
+    position: relative;
+  }
+  .hero-arch img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.85) sepia(0.15); }
 
-    /* REVEAL */
-    .reveal { opacity:0; transform:translateY(32px); transition:opacity 0.9s ease, transform 0.9s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-    .reveal-delay-1 { transition-delay:0.1s; }
-    .reveal-delay-2 { transition-delay:0.2s; }
-    .reveal-delay-3 { transition-delay:0.3s; }
+  /* Overlay du compte à rebours sur l'arche */
+  .countdown-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(74,32,16,0.75) 0%, rgba(74,32,16,0.0) 100%);
+    padding: 30px 10px 18px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 0;
+    z-index: 2;
+  }
+  .countdown-item {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-width: 56px;
+  }
+  .countdown-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
+    color: #fff; line-height: 1;
+  }
+  .countdown-label {
+    font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 400;
+    color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .countdown-sep {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold);
+    align-self: flex-start; padding-top: 2px; line-height: 1;
+  }
 
-    /* SECTIONS */
-    section { background:transparent; padding:70px 24px 60px; text-align:center; position:relative; overflow:hidden; }
+  /* SHARED */
+  section { padding: 50px 24px; }
+  .section-parchment {
+    position: relative;
+    background: linear-gradient(160deg, #f5e4d0 0%, #eed5bc 50%, #f0ddc8 100%);
+  }
+  .section-photo-bg {
+    position: relative; min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 60px 28px 50px; text-align: center; overflow: hidden;
+  }
+  .section-photo-bg .bg-img { position: absolute; inset: 0; z-index: 0; }
+  .section-photo-bg .bg-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.5) sepia(0.3); }
+  .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.72); }
+  .section-photo-bg .content { position: relative; z-index: 2; width: 100%; }
 
-    .section-inner { position:relative; z-index:1; max-width:480px; margin:0 auto; }
+  .gold-border-box { border: 1.5px solid var(--gold); padding: 30px 20px; position: relative; z-index: 1; }
+  .couple-script { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 12px; }
+  .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 24px; }
 
-    /* Photo */
-    .photo-wrap { position:relative; display:inline-block; width:min(320px,85vw); margin:0 auto 28px; }
-    .photo-wrap img { width:100%; display:block; filter:sepia(0.25) brightness(0.92) saturate(0.85); }
-    .photo-wrap::before, .photo-wrap::after, .photo-wrap .c1, .photo-wrap .c2 {
-      content:''; position:absolute; width:22px; height:22px;
-      border-style:solid; border-color:var(--gold); pointer-events:none;
-    }
-    .photo-wrap::before { top:8px; left:8px; border-width:1px 0 0 1px; }
-    .photo-wrap::after  { bottom:8px; right:8px; border-width:0 1px 1px 0; }
-    .photo-wrap .c1 { top:8px; right:8px; border-width:1px 1px 0 0; }
-    .photo-wrap .c2 { bottom:8px; left:8px; border-width:0 0 1px 1px; }
+  /* MAIRIE - texte espacé */
+  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 10px; }
+  .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.2; margin-bottom: 28px; letter-spacing: 0.03em; }
 
-    /* Noms */
-    .couple-names {
-      font-family:'Great Vibes',cursive;
-      font-size:clamp(2.8rem,12vw,4.5rem);
-      color:var(--gold); line-height:1; margin:6px 0;
-      position:relative; z-index:1;
-    }
+  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+  .btn-itineraire {
+    display: inline-block; background: var(--burgundy); color: #fff;
+    font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px;
+    border: none; cursor: pointer; text-decoration: none;
+  }
+  .divider-gold { width: 60px; height: 1px; background: var(--gold); margin: 24px auto; }
+  .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
+  .hebrew-verse { font-size: 1.05rem; color: var(--gold); direction: rtl; margin-bottom: 24px; line-height: 1.8; }
+  .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
 
-    /* OUI */
-    .oui-wrap { margin:6px 0 10px; position:relative; z-index:1; }
-    .oui-label { font-family:'Montserrat',sans-serif; font-size:0.52rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-bottom:2px; }
-    .oui-big { font-family:'Cinzel',serif; font-size:2rem; font-weight:700; letter-spacing:8px; color:var(--gold); text-transform:uppercase; }
+  /* Parents sur la même ligne */
+  .parents-row {
+    display: flex; justify-content: center; align-items: center;
+    gap: 10px;
+    width: 100%; max-width: 380px; margin: 0 auto 16px;
+    font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8;
+    flex-wrap: wrap; text-align: center;
+  }
+  .parents-sep { color: var(--gold); font-size: 1rem; }
 
-    /* Date pill & lieu */
-    .date-pill { display:inline-block; padding:9px 26px; border:1px solid var(--gold); font-family:'Montserrat',sans-serif; font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; color:var(--text); margin:14px 0; position:relative; z-index:1; }
-    .venue-name { font-family:'Cinzel',serif; font-size:1rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:5px; position:relative; z-index:1; }
-    .venue-addr { font-style:italic; font-size:0.9rem; color:var(--text-muted); line-height:1.6; position:relative; z-index:1; }
+  .monogram-circle { width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+  .monogram-circle span { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--gold); }
+  .houppa-title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--burgundy); margin-bottom: 8px; }
+  .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--burgundy); margin: 18px 0; }
+  .info-title { font-size: 1rem; font-weight: 400; color: var(--text-mid); margin-bottom: 24px; line-height: 1.7; }
+  .in-memoriam { font-style: italic; font-size: 0.88rem; line-height: 1.85; color: var(--text-mid); font-weight: 300; }
+  .ornament { color: var(--gold); font-size: 1.1rem; margin: 20px 0; }
 
-    /* Parents (houppa) */
-    .parents-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:24px; }
-    .parent-card { border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.5); padding:14px 12px; text-align:left; position:relative; }
-    .parent-card::before { content:''; position:absolute; top:0; left:16px; right:16px; height:1px; background:linear-gradient(to right, transparent, var(--gold-light), transparent); }
-    .parent-name { font-family:'Cormorant Garamond',serif; font-size:0.72rem; font-style:italic; color:var(--text); line-height:1.4; }
+  /* Phrase image houppa */
+  .phrase-img { max-width: 100%; width: 280px; margin: 20px auto; display: block; }
 
-    /* Textes houppa */
-    .hebrew { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; color:var(--text-muted); letter-spacing:2px; margin-bottom:6px; position:relative; z-index:1; }
-    .hashem { font-style:italic; font-size:0.85rem; color:var(--text-muted); line-height:1.7; margin:10px 0 18px; position:relative; z-index:1; }
-    .in-memo { font-style:italic; font-size:0.78rem; color:var(--text-muted); margin-top:24px; line-height:1.7; position:relative; z-index:1; }
-    .hodou { font-family:'Cormorant Garamond',serif; font-size:0.9rem; font-style:italic; color:var(--gold); letter-spacing:1px; margin-bottom:20px; line-height:1.7; position:relative; z-index:1; }
-    .convier-txt { font-style:italic; font-size:0.92rem; color:var(--text-muted); line-height:1.7; margin:8px 0 16px; position:relative; z-index:1; }
-    .tsniout { font-family:'Montserrat',sans-serif; font-size:0.42rem; letter-spacing:3px; text-transform:uppercase; color:var(--text-muted); opacity:0.6; margin-top:20px; position:relative; z-index:1; }
+  /* Phrase invitation mairie */
+  .invitation-phrase {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
-    /* Noms hébreux séparés */
-    .hebrew-names { display:flex; justify-content:center; gap:32px; margin:4px 0 10px; position:relative; z-index:1; }
-    .hebrew-name-item { font-family:'Cormorant Garamond',serif; font-size:0.85rem; font-style:italic; color:var(--text-muted); letter-spacing:1px; }
-
-    /* Buttons */
-    .btn-row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:24px; position:relative; z-index:1; }
-    .btn-waze {
-      display:inline-flex; align-items:center; gap:7px; padding:11px 20px;
-      background:#05C8F7; color:#000; text-decoration:none;
-      font-family:'Montserrat',sans-serif; font-size:0.56rem; letter-spacing:3px; text-transform:uppercase;
-      border:none; border-radius:2px; cursor:pointer; transition:filter .2s, transform .2s;
-    }
-    .btn-waze:hover { filter:brightness(1.1); transform:translateY(-1px); }
-    .btn-cal {
-      display:inline-flex; align-items:center; gap:7px; padding:11px 20px;
-      background:transparent; border:1px solid var(--gold); color:var(--text);
-      font-family:'Montserrat',sans-serif; font-size:0.56rem; letter-spacing:3px; text-transform:uppercase;
-      border-radius:2px; cursor:pointer; transition:background .2s, transform .2s;
-    }
-    .btn-cal:hover { background:rgba(196,146,42,0.15); transform:translateY(-1px); }
-
-    /* Nav tabs */
-    .nav-tabs { display:flex; justify-content:center; gap:0; position:sticky; top:0; z-index:100; background:rgba(28,12,2,0.9); border-bottom:1px solid rgba(196,146,42,0.25); }
-    .nav-tab { padding:14px 20px; font-family:'Montserrat',sans-serif; font-size:0.48rem; letter-spacing:4px; text-transform:uppercase; color:var(--text-muted); text-decoration:none; border-bottom:2px solid transparent; transition:all .2s; cursor:pointer; background:none; border-top:none; border-left:none; border-right:none; }
-    .nav-tab:hover, .nav-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
-
-    /* FORMULAIRE */
-    .form-inner { max-width:480px; margin:0 auto; text-align:left; position:relative; z-index:1; }
-    .field-block { margin-bottom:18px; }
-    .field-label { display:block; font-family:'Montserrat',sans-serif; font-size:0.5rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:7px; }
-    .field-input, .field-textarea {
-      width:100%; padding:13px 14px; background:rgba(28,12,2,0.7);
-      border:1px solid rgba(196,146,42,0.3); outline:none;
-      font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--text);
-      transition:border-color .2s; -webkit-appearance:none;
-    }
-    .field-input::placeholder, .field-textarea::placeholder { color:var(--text-muted); }
-    .field-input:focus, .field-textarea:focus { border-color:var(--gold); }
-    .field-textarea { resize:vertical; min-height:90px; }
-    .sub-field { display:none; margin-top:10px; }
-    .sub-field.show { display:block; }
-    .radio-row { display:flex; gap:10px; }
-    .radio-btn {
-      flex:1; padding:12px 0; text-align:center;
-      border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.5);
-      font-family:'Montserrat',sans-serif; font-size:0.52rem; letter-spacing:3px;
-      text-transform:uppercase; color:var(--text-muted);
-      cursor:pointer; border-radius:2px; transition:all .2s;
-    }
-    .radio-btn.active { background:var(--gold); border-color:var(--gold); color:#1A0A00; }
-    .form-sep { width:100%; height:1px; background:linear-gradient(to right, transparent, rgba(196,146,42,0.2), transparent); margin:24px 0; }
-    .submit-btn {
-      width:100%; padding:18px;
-      background:linear-gradient(135deg, #1A0A00 0%, #7B4B2A 55%, var(--gold) 100%);
-      background-size:200%; animation:shimmer 4s ease infinite;
-      color:#FDF6E3; font-family:'Montserrat',sans-serif;
-      font-size:0.65rem; letter-spacing:5px; text-transform:uppercase; font-weight:600;
-      border:none; border-radius:2px; cursor:pointer;
-      box-shadow:0 8px 30px rgba(0,0,0,0.4);
-      transition:transform .2s, box-shadow .2s; position:relative; overflow:hidden; margin-top:8px;
-    }
-    .submit-btn:hover { transform:translateY(-2px); box-shadow:0 14px 40px rgba(0,0,0,0.5); }
-    .submit-btn:active { transform:scale(0.97); }
-    .submit-btn::after {
-      content:''; position:absolute; top:-50%; left:-70%; width:20%; height:200%;
-      background:rgba(255,255,255,0.12); transform:rotate(25deg);
-      animation:shine 3s ease-in-out infinite;
-    }
-    @keyframes shimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-    @keyframes shine   { 0%{left:-70%} 25%{left:130%} 100%{left:130%} }
-
-    .success-box { display:none; text-align:center; padding:36px 20px; border:1px solid rgba(196,146,42,0.3); background:rgba(28,12,2,0.7); }
-    .success-box h3 { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--gold); margin-bottom:10px; }
-    .success-box p { font-style:italic; color:var(--text-muted); font-size:0.95rem; line-height:1.6; }
-
-    /* FOOTER */
-    footer { background:rgba(28,12,2,0.85); padding:48px 24px 36px; text-align:center; position:relative; z-index:1; border-top:1px solid rgba(196,146,42,0.2); }
-    .footer-names { font-family:'Great Vibes',cursive; font-size:2.4rem; color:var(--gold); position:relative; z-index:1; }
-    .footer-date { font-family:'Montserrat',sans-serif; font-size:0.48rem; letter-spacing:6px; text-transform:uppercase; color:var(--text-muted); margin-top:10px; position:relative; z-index:1; }
-
-    p, h1, h2, h3 { position:relative; z-index:1; }
-
-    @media(max-width:420px){ .parents-row { grid-template-columns:1fr; } }
-  </style>
+  /* RSVP */
+  #rsvp { text-align: center; min-height: 100vh; padding: 60px 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .rsvp-title { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 6px; }
+  .rsvp-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-mid); letter-spacing: 0.1em; margin-bottom: 8px; }
+  .rsvp-deadline { font-size: 0.85rem; font-weight: 300; color: var(--text-mid); margin-bottom: 28px; }
+  .form-field { width: 100%; max-width: 340px; margin-bottom: 18px; text-align: left; }
+  .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--text-dark); margin-bottom: 6px; letter-spacing: 0.05em; }
+  .form-label span.req { color: var(--burgundy); }
+  .form-row { display: flex; gap: 10px; max-width: 340px; width: 100%; }
+  .form-row .form-field { flex: 1; }
+  input[type="text"], input[type="number"], textarea {
+    width: 100%; background: rgba(255,255,255,0.5); border: 1px solid #d4b08a;
+    padding: 10px 12px; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--text-dark); outline: none; border-radius: 2px;
+  }
+  textarea { height: 80px; resize: vertical; }
+  .radio-group { display: flex; gap: 20px; margin-top: 4px; }
+  .radio-group label { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); cursor: pointer; }
+  input[type="radio"] { accent-color: var(--burgundy); }
+  .btn-submit {
+    display: inline-block; background: var(--burgundy); color: #fff;
+    font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 40px;
+    border: none; cursor: pointer; margin-top: 10px; width: 100%; max-width: 340px; transition: background .3s;
+  }
+  .btn-submit:hover { background: var(--brown); }
+  .ornament-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 16px 0 6px; }
+  #success-msg { display: none; color: var(--burgundy); font-size: 1rem; font-style: italic; text-align: center; padding: 20px; }
+</style>
 </head>
 <body>
 
-<!-- Navigation -->
-<nav class="nav-tabs">
-  <a class="nav-tab active" href="#mairie" onclick="setActiveTab(this)">Mairie</a>
-  <a class="nav-tab" href="#houppa" onclick="setActiveTab(this)">Houppa</a>
-  <a class="nav-tab" href="#reponses" onclick="setActiveTab(this)">Participation</a>
+<nav>
+  <a class="nav-logo" href="#hero">S &amp; B</a>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<!-- ── MAIRIE ── -->
-<section id="mairie">
-  <div class="section-inner">
-    <p class="eyebrow reveal" style="font-size:0.65rem; letter-spacing:5px;">✦ Cérémonie Civile ✦</p>
+<!-- SECTION 1: HERO -->
+<section id="hero">
+  <div class="hero-arch-wrapper">
+    <div class="hero-arch">
+      <!-- ✅ Image couple2.jpeg -->
+      <img src="couple2.jpeg" alt="Shany & Benjamin">
 
-    <div class="deco reveal reveal-delay-2">
-      <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
-    </div>
-
-    <div class="couple-names reveal reveal-delay-2">Shany & Benjamin</div>
-
-    <div class="oui-wrap reveal reveal-delay-3">
-      <p class="oui-label">se diront</p>
-      <p class="oui-big">« Oui »</p>
-    </div>
-
-    <div class="deco reveal" style="margin-top:18px;">
-      <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
-    </div>
-
-    <div class="date-pill reveal">Mardi 6 Octobre 2026</div><br>
-    <p class="venue-name reveal">Mairie de Gournay-sur-Marne</p>
-    <p class="venue-addr reveal">Place du Général de Gaulle<br>93460 Gournay-sur-Marne</p>
-
-    <div class="btn-row reveal">
-      <a class="btn-waze" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne&navigate=yes" target="_blank">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7.5 12.5 7.5 12.5S19 15.25 19 10c0-4.42-3.58-8-7-8zm0 10.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 7.5 12 7.5s2.5 1.12 2.5 2.5S13.38 12.5 12 12.5z" fill="#000"/></svg>
-        Waze
-      </a>
-      <button class="btn-cal" onclick="addToCalendar('civil')">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Calendrier
-      </button>
+      <!-- ✅ Compte à rebours SUR l'arche -->
+      <div class="countdown-overlay">
+        <div class="countdown-item">
+          <span class="countdown-num" id="days">00</span>
+          <span class="countdown-label">Jours</span>
+        </div>
+        <span class="countdown-sep">·</span>
+        <div class="countdown-item">
+          <span class="countdown-num" id="hours">00</span>
+          <span class="countdown-label">Heures</span>
+        </div>
+        <span class="countdown-sep">·</span>
+        <div class="countdown-item">
+          <span class="countdown-num" id="minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <span class="countdown-sep">·</span>
+        <div class="countdown-item">
+          <span class="countdown-num" id="seconds">00</span>
+          <span class="countdown-label">Secondes</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="section-sep"></div>
+<!-- SECTION 2: MAIRIE -->
+<section id="mairie" class="section-photo-bg" style="text-align:center;">
+  <div class="bg-img">
+    <img src="couple4.jpeg" alt="Mairie">
+  </div>
+  <div class="bg-overlay"></div>
+  <div class="content">
+  <div class="gold-border-box">
 
-<!-- ── HOUPPA ── -->
-<section id="houppa">
-  <div class="section-inner">
+    <!-- ✅ S & B au-dessus de la phrase -->
+    <div class="couple-script" style="margin-bottom: 6px;">S &amp; B</div>
 
-    <p class="hodou reveal">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
+    <!-- ✅ Phrase d'invitation -->
+    <p class="invitation-phrase">
+      Shany &amp; Benjamin<br>
+      seraient honorés de votre présence<br>
+      à la cérémonie religieuse
+    </p>
 
-    <div class="parents-row reveal">
-      <div class="parent-card">
-        <p class="parent-name">Mme Dray · Sylvie Esther</p>
+    <div class="divider-gold"></div>
+
+    <div class="couple-script">Shany &amp; Benjamin</div>
+
+    <p class="se-diront">Se diront</p>
+    <p class="oui-text">« Oui »</p>
+
+    <!-- ✅ Texte mairie espacé -->
+    <p class="date-big">le Mardi 6 Octobre 2026</p>
+
+    <p class="address-text">
+      Mairie de Gournay-sur-Marne<br>
+      Place du Général de Gaulle<br>
+      93460 Gournay-sur-Marne
+    </p>
+
+    <div class="btn-row">
+      <a class="btn-itineraire" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" target="_blank">🗺 Waze</a>
+      <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- SECTION 3: HOUPPA -->
+<section id="houppa" class="section-photo-bg" style="text-align:center;">
+  <div class="content">
+    <div class="gold-border-box">
+
+      <p class="hebrew-verse">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
+
+      <div class="monogram-circle"><span>S &amp; B</span></div>
+
+      <!-- ✅ Parents sur la même ligne -->
+      <div class="parents-row">
+        <span>Mme Dray · Sylvie Esther</span>
+        <span class="parents-sep">✦</span>
+        <span>Mme Lacides · Cathy Esther</span>
       </div>
-      <div class="parent-card">
-        <p class="parent-name">Mme Lacides · Cathy Esther</p>
+
+      <p class="ont-la-joie">ont la joie de vous convier au mariage de leurs enfants</p>
+
+      <div class="houppa-title">Shany &amp; Benjamin</div>
+
+      <div class="hebrew-names">
+        <span>שני</span>
+        <span>&amp;</span>
+        <span>בנימין</span>
       </div>
-    </div>
 
-    <p class="convier-txt reveal">ont la joie de vous convier au mariage de leurs enfants</p>
+      <!-- ✅ Image une phrase.png -->
+      <img src="une phrase.png" alt="" class="phrase-img">
 
-    <div class="deco reveal">
-      <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
-    </div>
-<br>
-    <div class="couple-names reveal">Shany & Benjamin</div>
+      <p class="ont-la-joie" style="margin-top: 16px;">
+        remercient Hachem de vous convier à la célébration de leur union
+      </p>
 
-    <p class="hebrew reveal" style="margin-bottom:10px;"> בנימין & שני </p>
+      <div class="divider-gold"></div>
 
-    <p class="hashem reveal">remercient Hachem de vous convier<br>à la célébration de leur union</p>
+      <p class="date-big">Jeudi 8 Octobre 2026 · 17h30</p>
 
-    <div class="deco reveal">
-      <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
-    </div>
+      <p class="address-text">
+        Factory 58<br>
+        12 Rue Gutenberg<br>
+        93000 Bobigny
+      </p>
 
-    <div class="date-pill reveal">Jeudi 8 Octobre 2026 · 17h30</div><br>
-    <p class="venue-name reveal">Factory 58</p>
-    <p class="venue-addr reveal">12 Rue Gutenberg<br>93000 Bobigny</p>
+      <p class="tsniout-note">✦ Tenue tsniout exigée ✦</p>
 
-    <p class="in-memo reveal">Une pensée émue pour nos chers disparus<br>qui nous accompagnent de là-haut.</p>
+      <div class="btn-row">
+        <a class="btn-itineraire" href="https://waze.com/ul?q=12+Rue+Gutenberg+Bobigny" target="_blank">🗺 Waze</a>
+        <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Houppa+Shany+%26+Benjamin&dates=20261008T153000Z/20261008T230000Z&details=Factory+58+Bobigny" target="_blank">📅 Calendrier</a>
+      </div>
 
-    <p class="tsniout reveal">✦ Tenue tsniout exigée ✦</p>
+      <p class="ont-la-joie" style="margin-top: 20px;">La cérémonie sera suivie de la réception.</p>
 
-    <div class="btn-row reveal" style="margin-top:28px;">
-      <a class="btn-waze" href="https://waze.com/ul?q=12+rue+gutenberg+Bobigny&navigate=yes" target="_blank">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C7.58 2 4 5.58 4 10c0 5.25 7.5 12.5 7.5 12.5S19 15.25 19 10c0-4.42-3.58-8-7-8zm0 10.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 7.5 12 7.5s2.5 1.12 2.5 2.5S13.38 12.5 12 12.5z" fill="#000"/></svg>
-        Waze
-      </a>
-      <button class="btn-cal" onclick="addToCalendar('houppa')">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        Calendrier
-      </button>
+      <div class="divider-gold"></div>
+
+      <p class="in-memoriam">
+        Une pensée émue pour nos chers disparus qui nous accompagnent de là-haut.<br><br>
+        Leur présence restera à jamais gravée dans nos cœurs et dans nos vies.
+      </p>
+      <p class="ornament">✦</p>
+      <p class="in-memoriam">
+        Nous adressons également une tendre pensée à nos grands-parents,<br>
+        absents mais profondément présents dans nos souvenirs et dans nos vies.
+      </p>
+      <p class="ornament">✦ ✦ ✦</p>
     </div>
   </div>
 </section>
 
-<div class="section-sep"></div>
+<!-- SECTION 4: RSVP -->
+<section id="rsvp">
+  <div class="rsvp-title">Confirmez<br>votre présence</div>
+  <div class="ornament-stars">✦ ✦ ✦</div>
+  <p class="rsvp-subtitle">Nous avons hâte de vous retrouver !</p>
+  <p class="rsvp-deadline">Merci de confirmer avant le 15 Septembre 2026</p>
 
-<!-- ── RÉPONSES ── -->
-<section id="reponses">
-  <p class="eyebrow reveal" style="text-align:center;">✦ Confirmez votre présence ✦</p>
-  <div class="deco reveal" style="max-width:480px;margin:0 auto 10px;">
-    <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
-  </div>
-  <h2 class="reveal" style="font-family:'Cinzel',serif;text-align:center;letter-spacing:5px;font-size:1rem;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Réponses</h2>
-  <p class="reveal" style="text-align:center;font-style:italic;color:var(--text-muted);font-size:0.85rem;margin-bottom:32px;">Merci de confirmer avant le 15 Septembre 2026</p>
+  <div id="success-msg">Merci ! Votre réponse a bien été enregistrée. ✦</div>
 
-  <div class="form-inner">
-    <form id="rsvpForm" onsubmit="submitForm(event)">
-
-      <div class="field-block reveal">
-        <label class="field-label">Nom & Prénom</label>
-        <input class="field-input" type="text" id="nom" placeholder="Votre nom et prénom" required>
-      </div>
-
-      <div class="form-sep"></div>
-
-      <div class="reveal">
-        <label class="field-label">Présent à la Mairie ? <span style="opacity:.5;font-size:.95em;">(6 Oct)</span></label>
-        <div class="radio-row">
-          <button type="button" class="radio-btn" id="mOui" onclick="setRadio('mairie','oui')">Oui</button>
-          <button type="button" class="radio-btn active" id="mNon" onclick="setRadio('mairie','non')">Non</button>
-        </div>
-        <input type="hidden" id="mairie_val" value="non">
-        <div class="sub-field" id="mairied_nb">
-          <label class="field-label" style="margin-top:12px;">Nombre de personnes</label>
-          <input class="field-input" type="number" id="mairie_nb" min="1" placeholder="Ex : 2">
-        </div>
-      </div>
-
-      <div class="form-sep"></div>
-
-      <div class="reveal">
-        <label class="field-label">Présent à la Houppa ? <span style="opacity:.5;font-size:.95em;">(8 Oct)</span></label>
-        <div class="radio-row">
-          <button type="button" class="radio-btn" id="hOui" onclick="setRadio('houppa','oui')">Oui</button>
-          <button type="button" class="radio-btn active" id="hNon" onclick="setRadio('houppa','non')">Non</button>
-        </div>
-        <input type="hidden" id="houppa_val" value="non">
-        <div class="sub-field" id="houppab_nb">
-          <label class="field-label" style="margin-top:12px;">Nombre de personnes</label>
-          <input class="field-input" type="number" id="houppa_nb" min="1" placeholder="Ex : 2">
-        </div>
-      </div>
-
-      <div class="form-sep"></div>
-
-      <div class="field-block reveal">
-        <label class="field-label">Message pour les mariés</label>
-        <textarea class="field-textarea" id="message" placeholder="Mazal Tov ! Un mot pour Shany & Benjamin…"></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn reveal">Envoyer ma réponse</button>
-    </form>
-
-    <div class="success-box" id="successBox">
-      <h3>Mazal Tov ✦</h3>
-      <p>Votre réponse a bien été enregistrée.<br>À très bientôt pour cette belle soirée !</p>
+  <div class="form-row">
+    <div class="form-field">
+      <label class="form-label">Nom <span class="req">*</span></label>
+      <input type="text" id="nom" placeholder="Nom">
+    </div>
+    <div class="form-field">
+      <label class="form-label">Prénom <span class="req">*</span></label>
+      <input type="text" id="prenom" placeholder="Prénom">
     </div>
   </div>
-</section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="deco" style="max-width:480px;margin:0 auto 12px;">
-    <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
+  <div class="form-field">
+    <label class="form-label">Présent à la Mairie ? (6 Oct) <span class="req">*</span></label>
+    <div class="radio-group">
+      <label><input type="radio" name="mairie" value="oui"> Oui</label>
+      <label><input type="radio" name="mairie" value="non"> Non</label>
+    </div>
   </div>
-  <p class="footer-names">Shany & Benjamin</p>
-  <div class="deco" style="max-width:480px;margin:14px auto 0;">
-    <span class="deco-line l"></span><span class="deco-diamond"></span><span class="deco-line r"></span>
+
+  <div class="form-field">
+    <label class="form-label">Nombre de personnes à la Mairie <span class="req">*</span></label>
+    <input type="number" id="nb-mairie" min="0" max="20" placeholder="0">
   </div>
-</footer>
+
+  <div class="form-field">
+    <label class="form-label">Présent à la Houppa &amp; Soirée ? (8 Oct) <span class="req">*</span></label>
+    <div class="radio-group">
+      <label><input type="radio" name="houppa" value="oui"> Oui</label>
+      <label><input type="radio" name="houppa" value="non"> Non</label>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label class="form-label">Nombre de personnes à la Houppa <span class="req">*</span></label>
+    <input type="number" id="nb-houppa" min="0" max="20" placeholder="0">
+  </div>
+
+  <div class="form-field">
+    <label class="form-label">Message pour les mariés</label>
+    <textarea id="message" placeholder="Votre message…"></textarea>
+  </div>
+
+  <button class="btn-submit" onclick="submitRSVP()">Confirmer ma présence</button>
+</section>
 
 <script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  // Compte à rebours vers le 8 octobre 2026 (houppa)
+  function updateCountdown() {
+    const target = new Date('2026-10-08T17:30:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '00';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+    document.getElementById('days').textContent    = String(d).padStart(2,'0');
+    document.getElementById('hours').textContent   = String(h).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
 
-  function setActiveTab(el){
-    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-    el.classList.add('active');
+  function toggleMenu() {
+    // menu mobile (à implémenter si besoin)
   }
 
-  // Update active tab on scroll
-  window.addEventListener('scroll', () => {
-    const sections = ['mairie','houppa','reponses'];
-    let current = 'mairie';
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if(el && el.getBoundingClientRect().top <= 100) current = id;
-    });
-    document.querySelectorAll('.nav-tab').forEach(t => {
-      t.classList.toggle('active', t.getAttribute('href') === '#'+current);
-    });
-  });
-
-  function setRadio(type, val){
-    const prefix = type === 'mairie' ? 'm' : 'h';
-    const nbId   = type === 'mairie' ? 'mairied_nb' : 'houppab_nb';
-    document.getElementById(type+'_val').value = val;
-    document.getElementById(prefix+'Oui').classList.toggle('active', val==='oui');
-    document.getElementById(prefix+'Non').classList.toggle('active', val==='non');
-    document.getElementById(nbId).classList.toggle('show', val==='oui');
-  }
-
-  function submitForm(e){
-    e.preventDefault();
-    if(!document.getElementById('nom').value.trim()){ alert('Merci de renseigner votre nom 🙏'); return; }
-    document.getElementById('rsvpForm').style.display = 'none';
-    document.getElementById('successBox').style.display = 'block';
-  }
-
-  function addToCalendar(ev){
-    const events = {
-      civil:  { title:'Mariage Shany & Benjamin — Cérémonie Civile', start:'20261006T100000', end:'20261006T120000', loc:'Mairie de Gournay-sur-Marne, Place du Général de Gaulle, 93460 Gournay-sur-Marne', desc:'Cérémonie civile' },
-      houppa: { title:'Mariage Shany & Benjamin — Houppa & Soirée',  start:'20261008T173000', end:'20261009T020000', loc:'Factory 58, 12 Rue Gutenberg, 93000 Bobigny', desc:'Houppa · Soirée' }
-    };
-    const {title,start,end,loc,desc} = events[ev];
-    const gc = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&location=${encodeURIComponent(loc)}&details=${encodeURIComponent(desc)}`;
-    const ics = `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nDTSTART:${start}\r\nDTEND:${end}\r\nSUMMARY:${title}\r\nLOCATION:${loc}\r\nEND:VEVENT\r\nEND:VCALENDAR`;
-    if(/iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent)){
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
-      a.download = 'mariage.ics'; a.click();
-    } else { window.open(gc,'_blank'); }
+  function submitRSVP() {
+    const nom = document.getElementById('nom').value.trim();
+    const prenom = document.getElementById('prenom').value.trim();
+    if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
+    document.getElementById('success-msg').style.display = 'block';
+    document.querySelector('.btn-submit').style.display = 'none';
   }
 </script>
 </body>
