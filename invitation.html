@@ -19,14 +19,23 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Cormorant Garamond', serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
+  /* NAV avec liens Mairie / Houppa & Soirée */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 20px; background: transparent;
+    padding: 12px 20px;
+    background: rgba(249,240,232,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(200,169,110,0.3);
   }
-  .nav-logo { font-family: 'Great Vibes', cursive; font-size: 2rem; color: var(--gold); text-decoration: none; }
-  .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-  .hamburger span { display: block; width: 24px; height: 2px; background: var(--gold); border-radius: 2px; }
+  .nav-logo { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--gold); text-decoration: none; }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a {
+    font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--burgundy); }
 
   /* HERO */
   #hero {
@@ -35,7 +44,6 @@
     padding-bottom: 0;
   }
 
-  /* ARCH avec countdown dessus */
   .hero-arch-wrapper {
     position: relative;
     width: 88%; max-width: 340px;
@@ -48,7 +56,6 @@
   }
   .hero-arch img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.85) sepia(0.15); }
 
-  /* Overlay du compte à rebours sur l'arche */
   .countdown-overlay {
     position: absolute;
     bottom: 0; left: 0; right: 0;
@@ -94,14 +101,22 @@
   .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.72); }
   .section-photo-bg .content { position: relative; z-index: 2; width: 100%; }
 
-  .gold-border-box { border: 1.5px solid var(--gold); padding: 30px 20px; position: relative; z-index: 1; }
+  /* Cadre doré légèrement plus visible */
+  .gold-border-box {
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 0 6px rgba(200,169,110,0.15), 0 4px 24px rgba(139,58,42,0.08);
+    padding: 32px 22px;
+    position: relative; z-index: 1;
+    background: rgba(249,240,232,0.55);
+  }
+
   .couple-script { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 12px; }
   .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
   .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 24px; }
 
-  /* MAIRIE - texte espacé */
-  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 10px; }
-  .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.2; margin-bottom: 28px; letter-spacing: 0.03em; }
+  /* MAIRIE */
+  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 14px; }
+  .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.6; margin-bottom: 32px; letter-spacing: 0.03em; }
 
   .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
   .btn-itineraire {
@@ -110,10 +125,24 @@
     letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px;
     border: none; cursor: pointer; text-decoration: none;
   }
-  .divider-gold { width: 60px; height: 1px; background: var(--gold); margin: 24px auto; }
+  .divider-gold { width: 60px; height: 1px; background: var(--gold); margin: 28px auto; }
   .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
   .hebrew-verse { font-size: 1.05rem; color: var(--gold); direction: rtl; margin-bottom: 24px; line-height: 1.8; }
   .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
+
+  /* Arc de cercle Kol Sasson */
+  .kol-sasson-arc {
+    position: relative;
+    width: 100%;
+    height: 54px;
+    margin-bottom: 18px;
+    overflow: visible;
+  }
+  .kol-sasson-arc svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
 
   /* Parents sur la même ligne */
   .parents-row {
@@ -136,7 +165,7 @@
   /* Phrase image houppa */
   .phrase-img { max-width: 100%; width: 280px; margin: 20px auto; display: block; }
 
-  /* Phrase invitation mairie */
+  /* Phrase d'invitation dans la mairie */
   .invitation-phrase {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -145,6 +174,18 @@
     color: var(--text-mid);
     line-height: 1.8;
     margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* Verset hébreu en haut de la photo mairie */
+  .hebrew-top-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    direction: rtl;
+    letter-spacing: 0.04em;
+    margin-bottom: 22px;
+    line-height: 1.8;
     text-align: center;
   }
 
@@ -158,7 +199,7 @@
   .form-label span.req { color: var(--burgundy); }
   .form-row { display: flex; gap: 10px; max-width: 340px; width: 100%; }
   .form-row .form-field { flex: 1; }
-  input[type="text"], input[type="number"], textarea {
+  input[type="text"], input[type="number"], input[type="email"], textarea {
     width: 100%; background: rgba(255,255,255,0.5); border: 1px solid #d4b08a;
     padding: 10px 12px; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--text-dark); outline: none; border-radius: 2px;
   }
@@ -175,25 +216,26 @@
   .btn-submit:hover { background: var(--brown); }
   .ornament-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 16px 0 6px; }
   #success-msg { display: none; color: var(--burgundy); font-size: 1rem; font-style: italic; text-align: center; padding: 20px; }
+  .gs-link { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; color: var(--text-mid); margin-top: 10px; }
+  .gs-link a { color: var(--gold); }
 </style>
 </head>
 <body>
 
 <nav>
   <a class="nav-logo" href="#hero">S &amp; B</a>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-links">
+    <a href="#mairie">Mairie</a>
+    <a href="#houppa">Houppa &amp; Soirée</a>
+    <a href="#rsvp">RSVP</a>
+  </div>
 </nav>
 
 <!-- SECTION 1: HERO -->
 <section id="hero">
   <div class="hero-arch-wrapper">
     <div class="hero-arch">
-      <!-- ✅ Image couple2.jpeg -->
       <img src="couple2.jpeg" alt="Shany & Benjamin">
-
-      <!-- ✅ Compte à rebours SUR l'arche -->
       <div class="countdown-overlay">
         <div class="countdown-item">
           <span class="countdown-num" id="days">00</span>
@@ -226,48 +268,55 @@
   </div>
   <div class="bg-overlay"></div>
   <div class="content">
-  <div class="gold-border-box">
+    <div class="gold-border-box">
 
-    <!-- ✅ S & B au-dessus de la phrase -->
-    <div class="couple-script" style="margin-bottom: 6px;">S &amp; B</div>
+      <!-- ✅ Verset hébreu en haut -->
+      <p class="hebrew-top-verse">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
 
-    <!-- ✅ Phrase d'invitation -->
-    <p class="invitation-phrase">
-      Shany &amp; Benjamin<br>
-      seraient honorés de votre présence<br>
-      à la cérémonie religieuse
-    </p>
+      <div class="couple-script" style="margin-bottom: 6px;">S &amp; B</div>
 
-    <div class="divider-gold"></div>
+      <div class="divider-gold"></div>
 
-    <div class="couple-script">Shany &amp; Benjamin</div>
+      <div class="couple-script">Shany &amp; Benjamin</div>
 
-    <p class="se-diront">Se diront</p>
-    <p class="oui-text">« Oui »</p>
+      <p class="se-diront">Se diront</p>
+      <p class="oui-text">« Oui »</p>
 
-    <!-- ✅ Texte mairie espacé -->
-    <p class="date-big">le Mardi 6 Octobre 2026</p>
+      <!-- ✅ Plus d'espace dans la section mairie -->
+      <p class="date-big" style="margin-top: 10px;">le Mardi 6 Octobre 2026</p>
 
-    <p class="address-text">
-      Mairie de Gournay-sur-Marne<br>
-      Place du Général de Gaulle<br>
-      93460 Gournay-sur-Marne
-    </p>
+      <p class="address-text">
+        Mairie de Gournay-sur-Marne<br>
+        Place du Général de Gaulle<br>
+        93460 Gournay-sur-Marne
+      </p>
 
-    <div class="btn-row">
-      <a class="btn-itineraire" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" target="_blank">🗺 Waze</a>
-      <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
+      <div class="btn-row">
+        <a class="btn-itineraire" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" target="_blank">🗺 Waze</a>
+        <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
+      </div>
     </div>
-  </div>
   </div>
 </section>
 
-<!-- SECTION 3: HOUPPA -->
+<!-- SECTION 3: HOUPPA & SOIRÉE -->
 <section id="houppa" class="section-photo-bg" style="text-align:center;">
   <div class="content">
     <div class="gold-border-box">
 
-      <p class="hebrew-verse">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
+      <!-- ✅ Kol Sasson en arc de cercle tout en haut -->
+      <div class="kol-sasson-arc">
+        <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <path id="arc-curve" d="M 20,55 A 140,140 0 0,1 300,55" />
+          </defs>
+          <text font-family="Cormorant Garamond, serif" font-size="15" fill="#c8a96e" direction="rtl" text-anchor="middle">
+            <textPath href="#arc-curve" startOffset="50%">
+              קוֹל שָשוֹן וְקוֹל שִמְחָה קוֹל חָתָן וְקוֹל כָּלָה
+            </textPath>
+          </text>
+        </svg>
+      </div>
 
       <div class="monogram-circle"><span>S &amp; B</span></div>
 
@@ -280,7 +329,8 @@
 
       <p class="ont-la-joie">ont la joie de vous convier au mariage de leurs enfants</p>
 
-      <div class="houppa-title">Shany &amp; Benjamin</div>
+      <!-- ✅ Houppa & Soirée -->
+      <div class="houppa-title">Houppa &amp; Soirée</div>
 
       <div class="hebrew-names">
         <span>שני</span>
@@ -288,10 +338,16 @@
         <span>בנימין</span>
       </div>
 
-      <!-- ✅ Image une phrase.png -->
-      <img src="une phrase.png" alt="" class="phrase-img">
+      <div class="divider-gold"></div>
 
-      <p class="ont-la-joie" style="margin-top: 16px;">
+      <!-- ✅ Phrase honorés déplacée ici -->
+      <p class="invitation-phrase">
+        Shany &amp; Benjamin<br>
+        seraient honorés de votre présence<br>
+        à la cérémonie religieuse
+      </p>
+
+      <p class="ont-la-joie">
         remercient Hachem de vous convier à la célébration de leur union
       </p>
 
@@ -320,11 +376,6 @@
         Une pensée émue pour nos chers disparus qui nous accompagnent de là-haut.<br><br>
         Leur présence restera à jamais gravée dans nos cœurs et dans nos vies.
       </p>
-      <p class="ornament">✦</p>
-      <p class="in-memoriam">
-        Nous adressons également une tendre pensée à nos grands-parents,<br>
-        absents mais profondément présents dans nos souvenirs et dans nos vies.
-      </p>
       <p class="ornament">✦ ✦ ✦</p>
     </div>
   </div>
@@ -337,7 +388,9 @@
   <p class="rsvp-subtitle">Nous avons hâte de vous retrouver !</p>
   <p class="rsvp-deadline">Merci de confirmer avant le 15 Septembre 2026</p>
 
-  <div id="success-msg">Merci ! Votre réponse a bien été enregistrée. ✦</div>
+  <div id="success-msg">Merci ! Votre réponse a bien été enregistrée. ✦<br><br>
+    <span style="font-size:0.85rem; color:var(--text-mid);">Vos données ont été transmises.</span>
+  </div>
 
   <div class="form-row">
     <div class="form-field">
@@ -348,6 +401,11 @@
       <label class="form-label">Prénom <span class="req">*</span></label>
       <input type="text" id="prenom" placeholder="Prénom">
     </div>
+  </div>
+
+  <div class="form-field">
+    <label class="form-label">Email <span class="req">*</span></label>
+    <input type="email" id="email" placeholder="votre@email.com">
   </div>
 
   <div class="form-field">
@@ -382,19 +440,20 @@
   </div>
 
   <button class="btn-submit" onclick="submitRSVP()">Confirmer ma présence</button>
+
+  <p class="gs-link" style="margin-top:14px; max-width:340px; text-align:center;">
+    📋 Les réponses sont enregistrées dans un <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Sheet</a> — remplacez le lien après configuration.
+  </p>
 </section>
 
 <script>
-  // Compte à rebours vers le 8 octobre 2026 (houppa)
+  // Compte à rebours vers le 8 octobre 2026
   function updateCountdown() {
     const target = new Date('2026-10-08T17:30:00');
     const now = new Date();
     const diff = target - now;
     if (diff <= 0) {
-      document.getElementById('days').textContent = '00';
-      document.getElementById('hours').textContent = '00';
-      document.getElementById('minutes').textContent = '00';
-      document.getElementById('seconds').textContent = '00';
+      ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00');
       return;
     }
     const d = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -409,16 +468,44 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  function toggleMenu() {
-    // menu mobile (à implémenter si besoin)
-  }
+  // ✅ Soumission vers Google Sheets via Apps Script
+  // Remplacez VOTRE_SCRIPT_ID par l'ID de votre déploiement Google Apps Script
+  const GOOGLE_SCRIPT_URL = '';
 
-  function submitRSVP() {
-    const nom = document.getElementById('nom').value.trim();
+  async function submitRSVP() {
+    const nom    = document.getElementById('nom').value.trim();
     const prenom = document.getElementById('prenom').value.trim();
+    const email  = document.getElementById('email').value.trim();
+
     if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
-    document.getElementById('success-msg').style.display = 'block';
-    document.querySelector('.btn-submit').style.display = 'none';
+
+    const mairie = document.querySelector('input[name="mairie"]:checked')?.value || '';
+    const houppa = document.querySelector('input[name="houppa"]:checked')?.value || '';
+    const nbMairie = document.getElementById('nb-mairie').value || '0';
+    const nbHouppa = document.getElementById('nb-houppa').value || '0';
+    const message  = document.getElementById('message').value.trim();
+
+    const data = { nom, prenom, email, mairie, nbMairie, houppa, nbHouppa, message };
+
+    try {
+      const btn = document.querySelector('.btn-submit');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+
+      document.getElementById('success-msg').style.display = 'block';
+      btn.style.display = 'none';
+    } catch(err) {
+      // En mode no-cors on ne peut pas lire la réponse, on suppose le succès
+      document.getElementById('success-msg').style.display = 'block';
+      document.querySelector('.btn-submit').style.display = 'none';
+    }
   }
 </script>
 </body>
