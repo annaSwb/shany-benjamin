@@ -19,7 +19,6 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Cormorant Garamond', serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
-  /* NAV avec liens Mairie / Houppa & Soirée */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -44,13 +43,21 @@
     padding-bottom: 0;
   }
 
+  .hodou-arc-wrapper {
+    margin-top: 72px;
+    margin-bottom: 10px;
+    width: 92%;
+    max-width: 360px;
+  }
+  .hodou-arc-wrapper svg { width: 100%; overflow: visible; }
+
   .hero-arch-wrapper {
     position: relative;
-    width: 88%; max-width: 340px;
-    margin-top: 70px;
+    width: 70%; max-width: 260px;
+    margin-top: 0;
   }
   .hero-arch {
-    width: 100%; height: 72vh;
+    width: 100%; height: 56vh;
     border-radius: 9999px 9999px 0 0; overflow: hidden; border: 2px solid var(--gold);
     position: relative;
   }
@@ -61,36 +68,15 @@
     bottom: 0; left: 0; right: 0;
     background: linear-gradient(to top, rgba(74,32,16,0.75) 0%, rgba(74,32,16,0.0) 100%);
     padding: 30px 10px 18px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 0;
-    z-index: 2;
+    display: flex; justify-content: center; gap: 10px; z-index: 2;
   }
-  .countdown-item {
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    min-width: 56px;
-  }
-  .countdown-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;
-    color: #fff; line-height: 1;
-  }
-  .countdown-label {
-    font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 400;
-    color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase;
-    margin-top: 2px;
-  }
-  .countdown-sep {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--gold);
-    align-self: flex-start; padding-top: 2px; line-height: 1;
-  }
+  .countdown-item { display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 48px; }
+  .countdown-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: #fff; line-height: 1; }
+  .countdown-label { font-family: 'Montserrat', sans-serif; font-size: 0.45rem; font-weight: 400; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
+  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--gold); align-self: flex-start; padding-top: 2px; line-height: 1; }
 
   /* SHARED */
   section { padding: 50px 24px; }
-  .section-parchment {
-    position: relative;
-    background: linear-gradient(160deg, #f5e4d0 0%, #eed5bc 50%, #f0ddc8 100%);
-  }
   .section-photo-bg {
     position: relative; min-height: 100vh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -101,7 +87,6 @@
   .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.72); }
   .section-photo-bg .content { position: relative; z-index: 2; width: 100%; }
 
-  /* Cadre doré légèrement plus visible */
   .gold-border-box {
     border: 2px solid var(--gold);
     box-shadow: 0 0 0 6px rgba(200,169,110,0.15), 0 4px 24px rgba(139,58,42,0.08);
@@ -113,8 +98,6 @@
   .couple-script { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 12px; }
   .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
   .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 24px; }
-
-  /* MAIRIE */
   .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 14px; }
   .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.6; margin-bottom: 32px; letter-spacing: 0.03em; }
 
@@ -127,24 +110,19 @@
   }
   .divider-gold { width: 60px; height: 1px; background: var(--gold); margin: 28px auto; }
   .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
-  .hebrew-verse { font-size: 1.05rem; color: var(--gold); direction: rtl; margin-bottom: 24px; line-height: 1.8; }
   .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
 
-  /* Arc de cercle Kol Sasson */
-  .kol-sasson-arc {
-    position: relative;
-    width: 100%;
-    height: 54px;
-    margin-bottom: 18px;
-    overflow: visible;
-  }
-  .kol-sasson-arc svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
+  /* Kol Sasson une seule fois en grand */
+  .kol-sasson-big {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    color: var(--gold);
+    direction: rtl;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
-  /* Parents sur la même ligne */
   .parents-row {
     display: flex; justify-content: center; align-items: center;
     gap: 10px;
@@ -154,18 +132,9 @@
   }
   .parents-sep { color: var(--gold); font-size: 1rem; }
 
-  .monogram-circle { width: 60px; height: 60px; border-radius: 50%; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-  .monogram-circle span { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--gold); }
-  .houppa-title { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--burgundy); margin-bottom: 8px; }
   .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--burgundy); margin: 18px 0; }
-  .info-title { font-size: 1rem; font-weight: 400; color: var(--text-mid); margin-bottom: 24px; line-height: 1.7; }
-  .in-memoriam { font-style: italic; font-size: 0.88rem; line-height: 1.85; color: var(--text-mid); font-weight: 300; }
   .ornament { color: var(--gold); font-size: 1.1rem; margin: 20px 0; }
 
-  /* Phrase image houppa */
-  .phrase-img { max-width: 100%; width: 280px; margin: 20px auto; display: block; }
-
-  /* Phrase d'invitation dans la mairie */
   .invitation-phrase {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -174,18 +143,6 @@
     color: var(--text-mid);
     line-height: 1.8;
     margin-bottom: 20px;
-    text-align: center;
-  }
-
-  /* Verset hébreu en haut de la photo mairie */
-  .hebrew-top-verse {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--gold);
-    direction: rtl;
-    letter-spacing: 0.04em;
-    margin-bottom: 22px;
-    line-height: 1.8;
     text-align: center;
   }
 
@@ -216,8 +173,6 @@
   .btn-submit:hover { background: var(--brown); }
   .ornament-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 16px 0 6px; }
   #success-msg { display: none; color: var(--burgundy); font-size: 1rem; font-style: italic; text-align: center; padding: 20px; }
-  .gs-link { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; color: var(--text-mid); margin-top: 10px; }
-  .gs-link a { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -233,6 +188,21 @@
 
 <!-- SECTION 1: HERO -->
 <section id="hero">
+
+  <!-- Hodou en arc de cercle, grand -->
+  <div class="hodou-arc-wrapper">
+    <svg viewBox="0 0 340 82" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="hodou-arc" d="M 10,78 A 160,160 0 0,1 330,78" />
+      </defs>
+      <text font-family="Cormorant Garamond, serif" font-size="21" fill="#c8a96e" text-anchor="middle">
+        <textPath href="#hodou-arc" startOffset="50%">
+          הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ
+        </textPath>
+      </text>
+    </svg>
+  </div>
+
   <div class="hero-arch-wrapper">
     <div class="hero-arch">
       <img src="couple2.jpeg" alt="Shany & Benjamin">
@@ -263,34 +233,19 @@
 
 <!-- SECTION 2: MAIRIE -->
 <section id="mairie" class="section-photo-bg" style="text-align:center;">
-  <div class="bg-img">
-    <img src="couple4.jpeg" alt="Mairie">
-  </div>
+  <div class="bg-img"><img src="couple4.jpeg" alt="Mairie"></div>
   <div class="bg-overlay"></div>
   <div class="content">
     <div class="gold-border-box">
-
-      <!-- ✅ Verset hébreu en haut -->
-      <p class="hebrew-top-verse">הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ</p>
-
-      <div class="couple-script" style="margin-bottom: 6px;">S &amp; B</div>
-
-      <div class="divider-gold"></div>
-
       <div class="couple-script">Shany &amp; Benjamin</div>
-
       <p class="se-diront">Se diront</p>
       <p class="oui-text">« Oui »</p>
-
-      <!-- ✅ Plus d'espace dans la section mairie -->
       <p class="date-big" style="margin-top: 10px;">le Mardi 6 Octobre 2026</p>
-
       <p class="address-text">
         Mairie de Gournay-sur-Marne<br>
         Place du Général de Gaulle<br>
         93460 Gournay-sur-Marne
       </p>
-
       <div class="btn-row">
         <a class="btn-itineraire" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" target="_blank">🗺 Waze</a>
         <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
@@ -304,23 +259,11 @@
   <div class="content">
     <div class="gold-border-box">
 
-      <!-- ✅ Kol Sasson en arc de cercle tout en haut -->
-      <div class="kol-sasson-arc">
-        <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="arc-curve" d="M 20,55 A 140,140 0 0,1 300,55" />
-          </defs>
-          <text font-family="Cormorant Garamond, serif" font-size="15" fill="#c8a96e" direction="rtl" text-anchor="middle">
-            <textPath href="#arc-curve" startOffset="50%">
-              קוֹל שָשוֹן וְקוֹל שִמְחָה קוֹל חָתָן וְקוֹל כָּלָה
-            </textPath>
-          </text>
-        </svg>
-      </div>
+      <!-- Kol Sasson UNE SEULE FOIS en grand -->
+      <p class="kol-sasson-big">קוֹל שָשוֹן וְקוֹל שִמְחָה קוֹל חָתָן וְקוֹל כָּלָה</p>
 
-      <div class="monogram-circle"><span>S &amp; B</span></div>
+      <div style="font-family:'Montserrat',sans-serif; font-size:0.7rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--text-mid); margin-bottom:18px;">Houppa &amp; Soirée</div>
 
-      <!-- ✅ Parents sur la même ligne -->
       <div class="parents-row">
         <span>Mme Dray · Sylvie Esther</span>
         <span class="parents-sep">✦</span>
@@ -329,29 +272,19 @@
 
       <p class="ont-la-joie">ont la joie de vous convier au mariage de leurs enfants</p>
 
-      <!-- ✅ Houppa & Soirée -->
-      <div class="houppa-title">Houppa &amp; Soirée</div>
-
       <div class="hebrew-names">
         <span>שני</span>
         <span>&amp;</span>
         <span>בנימין</span>
       </div>
 
+      <div class="couple-script" style="margin-top: 6px;">Shany &amp; Benjamin</div>
+
       <div class="divider-gold"></div>
 
-      <!-- ✅ Phrase honorés déplacée ici -->
       <p class="invitation-phrase">
-        Shany &amp; Benjamin<br>
-        seraient honorés de votre présence<br>
-        à la cérémonie religieuse
+        remercient Hachem et vous convient à la cérémonie religieuse
       </p>
-
-      <p class="ont-la-joie">
-        remercient Hachem de vous convier à la célébration de leur union
-      </p>
-
-      <div class="divider-gold"></div>
 
       <p class="date-big">Jeudi 8 Octobre 2026 · 17h30</p>
 
@@ -361,7 +294,7 @@
         93000 Bobigny
       </p>
 
-      <p class="tsniout-note">✦ Tenue tsniout exigée ✦</p>
+      <p class="tsniout-note">✦ Une tenue correcte réjouira les mariés ✦</p>
 
       <div class="btn-row">
         <a class="btn-itineraire" href="https://waze.com/ul?q=12+Rue+Gutenberg+Bobigny" target="_blank">🗺 Waze</a>
@@ -369,10 +302,7 @@
       </div>
 
       <p class="ont-la-joie" style="margin-top: 20px;">La cérémonie sera suivie de la réception.</p>
-
       <div class="divider-gold"></div>
-
-      
       <p class="ornament">✦ ✦ ✦</p>
     </div>
   </div>
@@ -406,7 +336,7 @@
   </div>
 
   <div class="form-field">
-    <label class="form-label">Présent à la Mairie ? (6 Oct) <span class="req">*</span></label>
+    <label class="form-label">Présent à la Mairie ? <span class="req">*</span></label>
     <div class="radio-group">
       <label><input type="radio" name="mairie" value="oui"> Oui</label>
       <label><input type="radio" name="mairie" value="non"> Non</label>
@@ -419,7 +349,7 @@
   </div>
 
   <div class="form-field">
-    <label class="form-label">Présent à la Houppa &amp; Soirée ? (8 Oct) <span class="req">*</span></label>
+    <label class="form-label">Présent à la Houppa &amp; Soirée ? <span class="req">*</span></label>
     <div class="radio-group">
       <label><input type="radio" name="houppa" value="oui"> Oui</label>
       <label><input type="radio" name="houppa" value="non"> Non</label>
@@ -437,10 +367,6 @@
   </div>
 
   <button class="btn-submit" onclick="submitRSVP()">Confirmer ma présence</button>
-
-  <p class="gs-link" style="margin-top:14px; max-width:340px; text-align:center;">
-    📋 Les réponses sont enregistrées dans un <a href="YOUR_GOOGLE_SHEET_URL" target="_blank">Google Sheet</a> — remplacez le lien après configuration.
-  </p>
 </section>
 
 <script>
@@ -465,9 +391,8 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ✅ Soumission vers Google Sheets via Apps Script
-  // Remplacez VOTRE_SCRIPT_ID par l'ID de votre déploiement Google Apps Script
-  const GOOGLE_SCRIPT_URL = '';
+  // ➡️ COLLE TON URL GOOGLE APPS SCRIPT ICI (format : https://script.google.com/macros/s/XXXX/exec)
+  const GOOGLE_SCRIPT_URL = 'COLLE_TON_URL_ICI';
 
   async function submitRSVP() {
     const nom    = document.getElementById('nom').value.trim();
@@ -476,16 +401,16 @@
 
     if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
 
-    const mairie = document.querySelector('input[name="mairie"]:checked')?.value || '';
-    const houppa = document.querySelector('input[name="houppa"]:checked')?.value || '';
+    const mairie   = document.querySelector('input[name="mairie"]:checked')?.value || '';
+    const houppa   = document.querySelector('input[name="houppa"]:checked')?.value || '';
     const nbMairie = document.getElementById('nb-mairie').value || '0';
     const nbHouppa = document.getElementById('nb-houppa').value || '0';
-    const message  = document.getElementById('message').value.trim();
+    const msg      = document.getElementById('message').value.trim();
 
-    const data = { nom, prenom, email, mairie, nbMairie, houppa, nbHouppa, message };
+    const data = { nom, prenom, email, mairie, nbMairie, houppa, nbHouppa, message: msg };
 
+    const btn = document.querySelector('.btn-submit');
     try {
-      const btn = document.querySelector('.btn-submit');
       btn.textContent = 'Envoi en cours…';
       btn.disabled = true;
 
@@ -499,9 +424,8 @@
       document.getElementById('success-msg').style.display = 'block';
       btn.style.display = 'none';
     } catch(err) {
-      // En mode no-cors on ne peut pas lire la réponse, on suppose le succès
       document.getElementById('success-msg').style.display = 'block';
-      document.querySelector('.btn-submit').style.display = 'none';
+      btn.style.display = 'none';
     }
   }
 </script>
