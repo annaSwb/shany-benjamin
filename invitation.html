@@ -56,7 +56,7 @@
 
   .hodou-svg {
     position: absolute;
-    top: -38px;
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     width: 130%;
@@ -198,9 +198,9 @@
   <div class="hero-arch-wrapper">
 
     <!-- Arc corrigé : gauche vers droite, sweep 1 → texte lisible sur iPhone et desktop -->
-    <svg class="hodou-svg" viewBox="0 0 350 55" xmlns="http://www.w3.org/2000/svg">
+    <svg class="hodou-svg" viewBox="0 0 350 70" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <path id="hodou-arc" d="M 20,52 A 155,155 0 0,1 330,52" />
+        <path id="hodou-arc" d="M 20,65 A 155,155 0 0,1 330,65" />
       </defs>
       <text font-family="Cormorant Garamond, serif" font-size="19" fill="#c8a96e" text-anchor="middle">
         <textPath href="#hodou-arc" startOffset="50%">
@@ -272,11 +272,10 @@
         <span>Mme Lacides · Cathy Esther</span>
       </div>
       <p class="ont-la-joie">ont la joie de vous convier au mariage de leurs enfants</p>
-      <div class="couple-script" style="margin-top:6px;">Shany &amp; Benjamin</div>
       <div class="hebrew-names">
         <span>שני</span><span>&amp;</span><span>בנימין</span>
       </div>
-      
+      <div class="couple-script" style="margin-top:6px;">Shany &amp; Benjamin</div>
       <div class="divider-gold"></div>
       <p class="invitation-phrase">remercient Hachem et vous convient à la cérémonie religieuse</p>
       <p class="date-big">Jeudi 8 Octobre 2026 · 17h30</p>
@@ -385,12 +384,12 @@
     }).catch(() => {
       // Autoplay bloqué par le navigateur — l'utilisateur peut cliquer le bouton
     });
-    window.removeEventListener('scroll',    startMusicOnScroll);
-    window.removeEventListener('touchmove', startMusicOnScroll);
+    // listeners auto-removed via { once: true }
   }
 
-  window.addEventListener('scroll',    startMusicOnScroll, { passive: true });
-  window.addEventListener('touchmove', startMusicOnScroll, { passive: true });
+  ['scroll','touchstart','click'].forEach(function(evt) {
+    window.addEventListener(evt, startMusicOnScroll, { once: true, passive: true });
+  });
 
   /* Bouton lecture / pause manuel */
   function toggleMusic() {
