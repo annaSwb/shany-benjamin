@@ -197,24 +197,56 @@
 <section id="hero">
   <div class="hero-arch-wrapper">
 
-    <!--
-      CORRECTION MOBILE : texte hébreu sur arc
-      Le texte hébreu est RTL. Sur un textPath SVG, le navigateur place les glyphes
-      dans l'ordre du flux de la path. Pour que le RTL s'affiche correctement,
-      on trace l'arc de DROITE vers GAUCHE (sweep-flag="0"), ainsi le moteur
-      de rendu positionne le premier glyphe à droite et progresse vers la gauche,
-      ce qui correspond exactement à la lecture hébraïque.
-    -->
-    <svg class="hodou-svg" viewBox="0 0 350 70" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <!-- Arc tracé de droite (330,65) vers gauche (20,65), sweep=0 -->
-        <path id="hodou-arc" d="M 330,65 A 155,155 0 0,0 20,65" />
-      </defs>
-      <text font-family="Cormorant Garamond, serif" font-size="19" fill="#c8a96e" text-anchor="middle">
-        <textPath href="#hodou-arc" startOffset="50%">
-          הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ
-        </textPath>
-      </text>
+    <svg class="hodou-svg" viewBox="0 0 350 230" xmlns="http://www.w3.org/2000/svg">
+  <text x="329.4" y="206.5" transform="rotate(85.0,329.4,206.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ה</text>
+  <text x="328.3" y="197.0" transform="rotate(81.5,328.3,197.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="326.6" y="187.6" transform="rotate(77.9,326.6,187.6)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ֹ</text>
+  <text x="324.3" y="178.3" transform="rotate(74.4,324.3,178.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ד</text>
+  <text x="321.4" y="169.1" transform="rotate(70.8,321.4,169.1)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="318.0" y="160.2" transform="rotate(67.3,318.0,160.2)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ּ</text>
+  <text x="314.0" y="151.4" transform="rotate(63.8,314.0,151.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle"> </text>
+  <text x="309.5" y="143.0" transform="rotate(60.2,309.5,143.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ל</text>
+  <text x="304.5" y="134.8" transform="rotate(56.7,304.5,134.8)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ַ</text>
+  <text x="299.0" y="127.0" transform="rotate(53.1,299.0,127.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">י</text>
+  <text x="293.0" y="119.5" transform="rotate(49.6,293.0,119.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ה</text>
+  <text x="286.6" y="112.4" transform="rotate(46.0,286.6,112.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ֹ</text>
+  <text x="279.7" y="105.7" transform="rotate(42.5,279.7,105.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="272.5" y="99.5" transform="rotate(39.0,272.5,99.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ָ</text>
+  <text x="264.8" y="93.7" transform="rotate(35.4,264.8,93.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ה</text>
+  <text x="256.9" y="88.4" transform="rotate(31.9,256.9,88.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle"> </text>
+  <text x="248.6" y="83.6" transform="rotate(28.3,248.6,83.6)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">כ</text>
+  <text x="240.0" y="79.3" transform="rotate(24.8,240.0,79.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ִ</text>
+  <text x="231.2" y="75.5" transform="rotate(21.2,231.2,75.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ּ</text>
+  <text x="222.1" y="72.3" transform="rotate(17.7,222.1,72.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">י</text>
+  <text x="212.9" y="69.7" transform="rotate(14.2,212.9,69.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">-</text>
+  <text x="203.6" y="67.7" transform="rotate(10.6,203.6,67.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ט</text>
+  <text x="194.1" y="66.2" transform="rotate(7.1,194.1,66.2)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="184.6" y="65.3" transform="rotate(3.5,184.6,65.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ֹ</text>
+  <text x="175.0" y="65.0" transform="rotate(0.0,175.0,65.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ב</text>
+  <text x="165.4" y="65.3" transform="rotate(-3.5,165.4,65.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">,</text>
+  <text x="155.9" y="66.2" transform="rotate(-7.1,155.9,66.2)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle"> </text>
+  <text x="146.4" y="67.7" transform="rotate(-10.6,146.4,67.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">כ</text>
+  <text x="137.1" y="69.7" transform="rotate(-14.2,137.1,69.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ִ</text>
+  <text x="127.9" y="72.3" transform="rotate(-17.7,127.9,72.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ּ</text>
+  <text x="118.8" y="75.5" transform="rotate(-21.2,118.8,75.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">י</text>
+  <text x="110.0" y="79.3" transform="rotate(-24.8,110.0,79.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle"> </text>
+  <text x="101.4" y="83.6" transform="rotate(-28.3,101.4,83.6)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ל</text>
+  <text x="93.1" y="88.4" transform="rotate(-31.9,93.1,88.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ְ</text>
+  <text x="85.2" y="93.7" transform="rotate(-35.4,85.2,93.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ע</text>
+  <text x="77.5" y="99.5" transform="rotate(-39.0,77.5,99.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="70.3" y="105.7" transform="rotate(-42.5,70.3,105.7)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ֹ</text>
+  <text x="63.4" y="112.4" transform="rotate(-46.0,63.4,112.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ל</text>
+  <text x="57.0" y="119.5" transform="rotate(-49.6,57.0,119.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ָ</text>
+  <text x="51.0" y="127.0" transform="rotate(-53.1,51.0,127.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ם</text>
+  <text x="45.5" y="134.8" transform="rotate(-56.7,45.5,134.8)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle"> </text>
+  <text x="40.5" y="143.0" transform="rotate(-60.2,40.5,143.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ח</text>
+  <text x="36.0" y="151.4" transform="rotate(-63.8,36.0,151.4)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ַ</text>
+  <text x="32.0" y="160.2" transform="rotate(-67.3,32.0,160.2)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ס</text>
+  <text x="28.6" y="169.1" transform="rotate(-70.8,28.6,169.1)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ְ</text>
+  <text x="25.7" y="178.3" transform="rotate(-74.4,25.7,178.3)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ד</text>
+  <text x="23.4" y="187.6" transform="rotate(-77.9,23.4,187.6)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ּ</text>
+  <text x="21.7" y="197.0" transform="rotate(-81.5,21.7,197.0)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ו</text>
+  <text x="20.6" y="206.5" transform="rotate(-85.0,20.6,206.5)" font-family="Cormorant Garamond,serif" font-size="14" fill="#c8a96e" text-anchor="middle">ֹ</text>
     </svg>
 
     <div class="hero-arch">
@@ -413,403 +445,6 @@
   }
 
   /* ── RSVP ── */
-  const GOOGLE_SCRIPT_URL = 'COLLE_TON_URL_ICI';
-
-  async function submitRSVP() {
-    const nom    = document.getElementById('nom').value.trim();
-    const prenom = document.getElementById('prenom').value.trim();
-    if (!nom || !prenom) { alert('Merci de renseigner votre nom et prénom.'); return; }
-    const data = {
-      nom, prenom,
-      mairie:   document.querySelector('input[name="mairie"]:checked')?.value || '',
-      nbMairie: document.getElementById('nb-mairie').value || '0',
-      houppa:   document.querySelector('input[name="houppa"]:checked')?.value || '',
-      nbHouppa: document.getElementById('nb-houppa').value || '0',
-      message:  document.getElementById('message').value.trim()
-    };
-    const btn = document.querySelector('.btn-submit');
-    btn.textContent = 'Envoi en cours…'; btn.disabled = true;
-    try {
-      await fetch(GOOGLE_SCRIPT_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) });
-    } catch(e) {}
-    document.getElementById('success-msg').style.display = 'block';
-    btn.style.display = 'none';
-  }
-</script>
-</body>
-</html>
-  /* ── HERO ── */
-  #hero {
-    position: relative;
-    min-height: 100vh;
-    background: var(--peach);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-top: 60px;
-    padding-bottom: 0;
-  }
-
-  .hero-arch-wrapper {
-    position: relative;
-    width: 72%;
-    max-width: 270px;
-  }
-
-  .hodou-svg {
-    position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 130%;
-    max-width: 360px;
-    overflow: visible;
-    z-index: 3;
-  }
-
-  .hero-arch {
-    width: 100%;
-    height: 58vh;
-    border-radius: 9999px 9999px 0 0;
-    overflow: hidden;
-    border: 2px solid var(--gold);
-    position: relative;
-  }
-  .hero-arch img {
-    width: 100%; height: 100%;
-    object-fit: cover; object-position: center top;
-    filter: brightness(0.85) sepia(0.15);
-  }
-
-  .countdown-overlay {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(74,32,16,0.78) 0%, rgba(74,32,16,0.0) 100%);
-    padding: 28px 8px 16px;
-    display: flex; justify-content: center; gap: 8px; z-index: 2;
-  }
-  .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 44px; }
-  .countdown-num { font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600; color: #fff; line-height: 1; }
-  .countdown-label { font-family: 'Montserrat', sans-serif; font-size: 0.42rem; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
-  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); align-self: flex-start; padding-top: 2px; line-height: 1; }
-
-  /* ── SHARED ── */
-  section { padding: 50px 24px; }
-  .section-photo-bg {
-    position: relative; min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 60px 28px 50px; text-align: center; overflow: hidden;
-  }
-  .section-photo-bg .bg-img { position: absolute; inset: 0; z-index: 0; }
-  .section-photo-bg .bg-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.5) sepia(0.3); }
-  .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.72); }
-  .section-photo-bg .content { position: relative; z-index: 2; width: 100%; }
-
-  .gold-border-box {
-    border: 2px solid var(--gold);
-    box-shadow: 0 0 0 6px rgba(200,169,110,0.15), 0 4px 24px rgba(139,58,42,0.08);
-    padding: 32px 22px;
-    position: relative; z-index: 1;
-    background: rgba(249,240,232,0.55);
-  }
-
-  .couple-script { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 12px; }
-  .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
-  .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 24px; }
-  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 14px; }
-  .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.6; margin-bottom: 32px; letter-spacing: 0.03em; }
-  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
-  .btn-itineraire {
-    display: inline-block; background: var(--burgundy); color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px;
-    border: none; cursor: pointer; text-decoration: none;
-  }
-  .divider-gold { width: 60px; height: 1px; background: var(--gold); margin: 28px auto; }
-  .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
-  .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
-  .kol-sasson-big { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--gold); direction: rtl; line-height: 1.7; margin-bottom: 20px; text-align: center; }
-  .parents-row { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; max-width: 380px; margin: 0 auto 16px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; flex-wrap: wrap; text-align: center; }
-  .parents-sep { color: var(--gold); font-size: 1rem; }
-  .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--burgundy); margin: 18px 0; }
-  .ornament { color: var(--gold); font-size: 1.1rem; margin: 20px 0; }
-  .invitation-phrase { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; text-align: center; }
-
-  /* ── RSVP ── */
-  #rsvp { text-align: center; min-height: 100vh; padding: 60px 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .rsvp-title { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 6px; }
-  .rsvp-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-mid); letter-spacing: 0.1em; margin-bottom: 8px; }
-  .rsvp-deadline { font-size: 0.85rem; font-weight: 300; color: var(--text-mid); margin-bottom: 28px; }
-  .form-field { width: 100%; max-width: 340px; margin-bottom: 18px; text-align: left; }
-  .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--text-dark); margin-bottom: 6px; letter-spacing: 0.05em; }
-  .form-label span.req { color: var(--burgundy); }
-  .form-row { display: flex; gap: 10px; max-width: 340px; width: 100%; }
-  .form-row .form-field { flex: 1; }
-  input[type="text"], input[type="number"], textarea {
-    width: 100%; background: rgba(255,255,255,0.5); border: 1px solid #d4b08a;
-    padding: 10px 12px; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
-    color: var(--text-dark); outline: none; border-radius: 2px;
-  }
-  input[type="number"] { -moz-appearance: textfield; }
-  input[type="number"]::-webkit-outer-spin-button,
-  input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  textarea { height: 80px; resize: vertical; }
-  .radio-group { display: flex; gap: 20px; margin-top: 4px; }
-  .radio-group label { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); cursor: pointer; }
-  input[type="radio"] { accent-color: var(--burgundy); }
-  .btn-submit { display: inline-block; background: var(--burgundy); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 40px; border: none; cursor: pointer; margin-top: 10px; width: 100%; max-width: 340px; transition: background .3s; }
-  .btn-submit:hover { background: var(--brown); }
-  .ornament-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 16px 0 6px; }
-  #success-msg { display: none; color: var(--burgundy); font-size: 1rem; font-style: italic; text-align: center; padding: 20px; }
-
-  /* ── BOUTON MUSIQUE ── */
-  #music-btn {
-    position: fixed; bottom: 22px; right: 22px; z-index: 200;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--burgundy); border: 2px solid rgba(200,169,110,0.5);
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 14px rgba(139,58,42,0.4);
-    transition: background .2s, transform .2s;
-  }
-  #music-btn:hover { background: var(--brown); transform: scale(1.08); }
-  #music-btn svg { width: 17px; height: 17px; fill: #fff; }
-</style>
-</head>
-<body>
-
-<nav>
-  <a class="nav-logo" href="#hero">S &amp; B</a>
-  <div class="nav-links">
-    <a href="#mairie">Mairie</a>
-    <a href="#houppa">Houppa &amp; Soirée</a>
-    <a href="#rsvp">RSVP</a>
-  </div>
-</nav>
-
-<!-- AUDIO -->
-<audio id="bg-music" src="musique.mp3" loop preload="none"></audio>
-
-<!-- BOUTON LECTURE / PAUSE -->
-<button id="music-btn" title="Musique" onclick="toggleMusic()">
-  <svg id="icon-play" viewBox="0 0 24 24"><path d="M3 22V2l18 10L3 22z"/></svg>
-  <svg id="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-</button>
-
-<!-- SECTION 1 : HERO -->
-<section id="hero">
-  <div class="hero-arch-wrapper">
-
-    <!-- Arc corrigé : gauche vers droite, sweep 1 → texte lisible sur iPhone et desktop -->
-    <svg class="hodou-svg" viewBox="0 0 350 70" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <path id="hodou-arc" d="M 20,65 A 155,155 0 0,1 330,65" />
-      </defs>
-      <text font-family="Cormorant Garamond, serif" font-size="19" fill="#c8a96e" text-anchor="middle">
-        <textPath href="#hodou-arc" startOffset="50%">
-          הוֹדוּ לַיהֹוָה כִּי-טוֹב, כִּי לְעוֹלָם חַסְדּוֹ
-        </textPath>
-      </text>
-    </svg>
-
-    <div class="hero-arch">
-      <img src="couple2.jpeg" alt="Shany & Benjamin">
-      <div class="countdown-overlay">
-        <div class="countdown-item">
-          <span class="countdown-num" id="days">00</span>
-          <span class="countdown-label">Jours</span>
-        </div>
-        <span class="countdown-sep">·</span>
-        <div class="countdown-item">
-          <span class="countdown-num" id="hours">00</span>
-          <span class="countdown-label">Heures</span>
-        </div>
-        <span class="countdown-sep">·</span>
-        <div class="countdown-item">
-          <span class="countdown-num" id="minutes">00</span>
-          <span class="countdown-label">Minutes</span>
-        </div>
-        <span class="countdown-sep">·</span>
-        <div class="countdown-item">
-          <span class="countdown-num" id="seconds">00</span>
-          <span class="countdown-label">Secondes</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SECTION 2 : MAIRIE -->
-<section id="mairie" class="section-photo-bg" style="text-align:center;">
-  <div class="bg-img"><img src="couple4.jpeg" alt="Mairie"></div>
-  <div class="bg-overlay"></div>
-  <div class="content">
-    <div class="gold-border-box">
-      <div class="couple-script">Shany &amp; Benjamin</div>
-      <p class="se-diront">Se diront</p>
-      <p class="oui-text">« Oui »</p>
-      <p class="date-big" style="margin-top:10px;">le Mardi 6 Octobre 2026</p>
-      <p class="address-text">
-        Mairie de Gournay-sur-Marne<br>
-        Place du Général de Gaulle<br>
-        93460 Gournay-sur-Marne
-      </p>
-      <div class="btn-row">
-        <a class="btn-itineraire" href="https://waze.com/ul?q=Mairie+Gournay-sur-Marne" target="_blank">🗺 Waze</a>
-        <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 3 : HOUPPA & SOIRÉE -->
-<section id="houppa" class="section-photo-bg" style="text-align:center;">
-  <div class="content">
-    <div class="gold-border-box">
-      <p class="kol-sasson-big">קוֹל שָשוֹן וְקוֹל שִמְחָה קוֹל חָתָן וְקוֹל כָּלָה</p>
-      <div style="font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-mid);margin-bottom:18px;">Houppa &amp; Soirée</div>
-      <div class="parents-row">
-        <span>Mme Dray · Sylvie Esther</span>
-        <span class="parents-sep">✦</span>
-        <span>Mme Lacides · Cathy Esther</span>
-      </div>
-      <p class="ont-la-joie">ont la joie de vous convier au mariage de leurs enfants</p>
-       <div class="couple-script" style="margin-top:6px;">Shany &amp; Benjamin</div>
-      <div class="hebrew-names">
-        <span>שני</span><span>&amp;</span><span>בנימין</span>
-      </div>
-      <div class="divider-gold"></div>
-      <p class="invitation-phrase">remercient Hachem et vous convient à la cérémonie religieuse</p>
-      <p class="date-big">Jeudi 8 Octobre 2026 · 17h30</p>
-      <p class="address-text">Factory 58<br>12 Rue Gutenberg<br>93000 Bobigny</p>
-      <p class="tsniout-note">✦ Une tenue correcte réjouira les mariés ✦</p>
-      <div class="btn-row">
-        <a class="btn-itineraire" href="https://waze.com/ul?q=12+Rue+Gutenberg+Bobigny" target="_blank">🗺 Waze</a>
-        <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Houppa+Shany+%26+Benjamin&dates=20261008T153000Z/20261008T230000Z&details=Factory+58+Bobigny" target="_blank">📅 Calendrier</a>
-      </div>
-      <p class="ont-la-joie" style="margin-top:20px;">La cérémonie sera suivie de la réception.</p>
-      <div class="divider-gold"></div>
-      <p class="ornament">✦ ✦ ✦</p>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 4 : RSVP -->
-<section id="rsvp">
-  <div class="rsvp-title">Confirmez<br>votre présence</div>
-  <div class="ornament-stars">✦ ✦ ✦</div>
-  <p class="rsvp-subtitle">Nous avons hâte de vous retrouver !</p>
-  <p class="rsvp-deadline">Merci de confirmer avant le 15 Septembre 2026</p>
-  <div id="success-msg">Merci ! Votre réponse a bien été enregistrée. ✦<br><br>
-    <span style="font-size:0.85rem;color:var(--text-mid);">Vos données ont été transmises.</span>
-  </div>
-
-  <!-- Nom / Prénom -->
-  <div class="form-row">
-    <div class="form-field">
-      <label class="form-label">Nom <span class="req">*</span></label>
-      <input type="text" id="nom" placeholder="Nom">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Prénom <span class="req">*</span></label>
-      <input type="text" id="prenom" placeholder="Prénom">
-    </div>
-  </div>
-
-  <!-- Mairie -->
-  <div class="form-field">
-    <label class="form-label">Présent à la Mairie ? <span class="req">*</span></label>
-    <div class="radio-group">
-      <label><input type="radio" name="mairie" value="oui"> Oui</label>
-      <label><input type="radio" name="mairie" value="non"> Non</label>
-    </div>
-  </div>
-  <div class="form-field">
-    <label class="form-label">Nombre de personnes à la Mairie</label>
-    <input type="number" id="nb-mairie" min="0" value="0">
-  </div>
-
-  <!-- Houppa -->
-  <div class="form-field">
-    <label class="form-label">Présent à la Houppa &amp; Soirée ? <span class="req">*</span></label>
-    <div class="radio-group">
-      <label><input type="radio" name="houppa" value="oui"> Oui</label>
-      <label><input type="radio" name="houppa" value="non"> Non</label>
-    </div>
-  </div>
-  <div class="form-field">
-    <label class="form-label">Nombre de personnes à la Houppa</label>
-    <input type="number" id="nb-houppa" min="0" value="0">
-  </div>
-
-  <!-- Message -->
-  <div class="form-field">
-    <label class="form-label">Message pour les mariés</label>
-    <textarea id="message" placeholder="Votre message…"></textarea>
-  </div>
-
-  <button class="btn-submit" onclick="submitRSVP()">Confirmer ma présence</button>
-</section>
-
-<script>
-  /* ── COUNTDOWN ── */
-  function updateCountdown() {
-    const target = new Date('2026-10-08T17:30:00');
-    const now = new Date();
-    const diff = target - now;
-    if (diff <= 0) {
-      ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00');
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('days').textContent    = String(d).padStart(2,'0');
-    document.getElementById('hours').textContent   = String(h).padStart(2,'0');
-    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
-    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-
-  /* ── MUSIQUE : démarre automatiquement au premier scroll ── */
-  const music = document.getElementById('bg-music');
-  let musicStarted = false;
-
-  function startMusicOnScroll() {
-    if (musicStarted) return;
-    musicStarted = true;
-    music.play().then(() => {
-      document.getElementById('icon-play').style.display  = 'none';
-      document.getElementById('icon-pause').style.display = 'block';
-    }).catch(() => {
-      // Autoplay bloqué par le navigateur — l'utilisateur peut cliquer le bouton
-    });
-    // listeners auto-removed via { once: true }
-  }
-
-  ['scroll','touchstart','click'].forEach(function(evt) {
-    window.addEventListener(evt, startMusicOnScroll, { once: true, passive: true });
-  });
-
-  /* Bouton lecture / pause manuel */
-  function toggleMusic() {
-    if (music.paused) {
-      music.play();
-      musicStarted = true;
-      document.getElementById('icon-play').style.display  = 'none';
-      document.getElementById('icon-pause').style.display = 'block';
-    } else {
-      music.pause();
-      document.getElementById('icon-play').style.display  = 'block';
-      document.getElementById('icon-pause').style.display = 'none';
-    }
-  }
-
-  /* ── RSVP ── */
-  // ➡️ COLLE TON URL GOOGLE APPS SCRIPT ICI (https://script.google.com/macros/s/XXXX/exec)
   const GOOGLE_SCRIPT_URL = 'COLLE_TON_URL_ICI';
 
   async function submitRSVP() {
