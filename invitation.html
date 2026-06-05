@@ -120,7 +120,8 @@
     border: none; cursor: pointer; text-decoration: none;
   }
 
-  .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
+  .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 4px; line-height: 1.8; text-align: center; }
+  .le-mariage { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
   .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
   .kol-sasson-big { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--gold); direction: rtl; line-height: 1.7; margin-bottom: 20px; text-align: center; }
   .parents-row { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; max-width: 380px; margin: 0 auto 16px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; flex-wrap: wrap; text-align: center; }
@@ -128,6 +129,12 @@
   .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--burgundy); margin: 18px 0; }
   .ornament { color: var(--gold); font-size: 1.1rem; margin: 20px 0; display: inline-block; }
   .invitation-phrase { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; text-align: center; }
+
+  /* ── HEURE PRÉCISE ── */
+  .heure-precise {
+    font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem;
+    color: var(--text-dark); margin-bottom: 22px;
+  }
 
   /* ── VIN D'HONNEUR NOTE ── */
   .vin-honneur-note {
@@ -172,7 +179,6 @@
   }
   input[type="radio"] { accent-color: var(--burgundy); }
 
-  /* ── CHAMP NB PERSONNES CONDITIONNEL ── */
   .nb-field {
     max-height: 0; overflow: hidden; opacity: 0;
     margin-top: 0;
@@ -287,10 +293,10 @@
         <a class="btn-itineraire" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mariage+Shany+%26+Benjamin&dates=20261006T100000Z/20261006T130000Z&details=Mairie+de+Gournay-sur-Marne" target="_blank">📅 Calendrier</a>
       </div>
       <p class="vin-honneur-note">
-  ✦ La cérémonie sera suivie d'un vin d'honneur ✦<br>
-  <span style="display:block; text-align:center;">Les Marronniers</span>
-  13 avenue du maréchal Joffre, 93460 Gournay-sur-Marne
-</p>
+        ✦ La cérémonie sera suivie d'un vin d'honneur ✦<br>
+        <span style="display:block; text-align:center;">Les Marronniers</span>
+        13 avenue du maréchal Joffre, 93460 Gournay-sur-Marne
+      </p>
     </div>
   </div>
 </section>
@@ -306,14 +312,16 @@
         <span class="parents-sep">✦</span>
         <span>Mme Lacides · Cathy Esther</span>
       </div>
-      <p class="ont-la-joie">ont la joie de vous annoncer le mariage de leurs enfants</p>
+      <p class="ont-la-joie">ont la joie de vous annoncer</p>
+      <p class="le-mariage">le mariage de leur enfant</p>
       <div class="couple-script" style="margin-top:6px;">Shany &amp; Benjamin</div>
       <div class="hebrew-names">
         <span>שני</span><span>&amp;</span><span>בנימין</span>
       </div>
       <div class="divider-gold"></div>
       <p class="invitation-phrase">Shany & Benjamin remercient Hachem et ont la joie de vous convier à leur cérémonie religieuse</p>
-      <p class="date-big">Jeudi 8 Octobre 2026 · 17h30</p>
+      <p class="date-big">Jeudi 8 Octobre 2026</p>
+      <p class="heure-precise">17h30 précise</p>
       <p class="address-text">Factory 58<br>12 Rue Gutenberg<br>93000 Bobigny</p>
       <p class="tsniout-note">✦ Une tenue correcte réjouira les mariés ✦</p>
       <div class="btn-row">
@@ -383,10 +391,8 @@
 </section>
 
 <script>
-  /* ── URL GOOGLE APPS SCRIPT ── */
   const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcZfg4C2LghmHUgOC5Zt6_IigKNQurQPWD64XSuaNE0sWsp0ylMq9WHWei_bW4kjVT_Q/exec';
 
-  /* ── COUNTDOWN ── */
   function updateCountdown() {
     const target = new Date('2026-10-08T17:30:00');
     const now = new Date();
@@ -407,7 +413,6 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* ── TOGGLE CHAMPS NB PERSONNES ── */
   function toggleNb(type, show) {
     const field = document.getElementById('nb-' + type + '-field');
     if (show) {
@@ -418,7 +423,6 @@
     }
   }
 
-  /* ── MUSIQUE ── */
   const music = document.getElementById('bg-music');
   let musicStarted = false;
 
@@ -447,7 +451,6 @@
     }
   }
 
-  /* ── RSVP ── */
   async function submitRSVP() {
     const nom    = document.getElementById('nom').value.trim();
     const prenom = document.getElementById('prenom').value.trim();
