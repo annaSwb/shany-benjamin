@@ -128,7 +128,7 @@
   .le-mariage { font-size: 0.9rem; font-weight: 300; color: var(--text-mid); margin-bottom: 14px; line-height: 1.8; text-align: center; }
   .hebrew-names { display: flex; justify-content: center; gap: 40px; margin-top: 6px; font-size: 0.9rem; color: var(--text-mid); }
   .kol-sasson-big { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 4.5vw, 1.45rem); color: var(--gold); direction: rtl; line-height: 1.7; margin-bottom: 18px; text-align: center; }
-  .parents-row { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; max-width: 360px; margin: 0 auto 14px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; text-align: center; }
+  .parents-row { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px 8px; width: 100%; max-width: 360px; margin: 0 auto 14px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; text-align: center; }
   .parents-sep { color: var(--gold); font-size: 1rem; }
   .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em; color: var(--burgundy); margin: 16px 0; }
   .ornament { color: var(--gold); font-size: 1rem; margin: 18px 0; display: inline-block; }
@@ -221,7 +221,6 @@
   /* ── TABLETTE / DESKTOP ── */
   @media (min-width: 600px) {
     .hero-arch-wrapper { max-width: 320px; }
-    .parents-row { flex-direction: row; gap: 10px; }
     .gold-border-box { padding: 36px 28px; }
     .section-photo-bg { padding: 80px 32px 56px; }
   }
