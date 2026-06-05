@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Shany & Benjamin – Mariage</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -15,49 +15,47 @@
     --text-dark: #4a2010;
     --text-mid: #7a4030;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
   body { font-family: 'Cormorant Garamond', serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
 
+  /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 20px;
-    background: rgba(249,240,232,0.92);
-    backdrop-filter: blur(6px);
+    padding: 10px 16px;
+    background: rgba(249,240,232,0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(200,169,110,0.3);
   }
-  .nav-logo { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--gold); text-decoration: none; }
-  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-logo { font-family: 'Great Vibes', cursive; font-size: 1.6rem; color: var(--gold); text-decoration: none; }
+  .nav-links { display: flex; gap: 14px; align-items: center; }
   .nav-links a {
-    font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-mid);
-    text-decoration: none;
-    position: relative;
-  }
-  .nav-links a::after {
-    content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
-    height: 1px; background: var(--gold);
-    transform: scaleX(0);
+    font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-mid);
+    text-decoration: none; padding: 6px 0;
   }
 
   /* ── HERO ── */
   #hero {
-    position: relative; min-height: 100vh; background: var(--peach);
+    position: relative; min-height: 100dvh; background: var(--peach);
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding-top: 60px; padding-bottom: 0; overflow: hidden;
+    padding: 70px 20px 30px; overflow: hidden;
   }
 
   .hero-arch-wrapper {
-    position: relative; width: 72%; max-width: 270px; z-index: 2;
+    position: relative; width: 88%; max-width: 300px; z-index: 2;
   }
 
   .hodou-svg {
-    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
-    width: 150%; max-width: 500px; overflow: visible; z-index: 3;
+    position: absolute; top: -36px; left: 50%; transform: translateX(-50%);
+    width: 130%; max-width: 420px; overflow: visible; z-index: 3;
   }
 
   .hero-arch {
-    width: 100%; height: 58vh;
+    width: 100%;
+    height: clamp(320px, 55vh, 480px);
     border-radius: 9999px 9999px 0 0;
     overflow: hidden; border: 2px solid var(--gold); position: relative;
   }
@@ -68,134 +66,138 @@
 
   .countdown-overlay {
     position: absolute; bottom: 0; left: 0; right: 0;
-    background: linear-gradient(to top, rgba(74,32,16,0.78) 0%, rgba(74,32,16,0.0) 100%);
-    padding: 28px 8px 16px;
-    display: flex; justify-content: center; gap: 8px; z-index: 2;
+    background: linear-gradient(to top, rgba(74,32,16,0.82) 0%, rgba(74,32,16,0.0) 100%);
+    padding: 32px 8px 18px;
+    display: flex; justify-content: center; gap: 6px; z-index: 2;
   }
-  .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 44px; }
+  .countdown-item { display: flex; flex-direction: column; align-items: center; min-width: 42px; }
   .countdown-num {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.7rem; font-weight: 600;
-    color: #fff; line-height: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    font-weight: 600; color: #fff; line-height: 1;
   }
-  .countdown-label { font-family: 'Montserrat', sans-serif; font-size: 0.42rem; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
-  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gold); align-self: flex-start; padding-top: 2px; line-height: 1; }
+  .countdown-label { font-family: 'Montserrat', sans-serif; font-size: 0.4rem; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 3px; }
+  .countdown-sep { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); align-self: flex-start; padding-top: 2px; line-height: 1; }
 
-  /* ── SHARED ── */
-  section { padding: 50px 24px; }
+  /* ── SECTIONS ── */
+  section { padding: 44px 20px; }
+
   .section-photo-bg {
-    position: relative; min-height: 100vh;
+    position: relative; min-height: 100dvh;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 60px 28px 50px; text-align: center; overflow: hidden;
+    padding: 72px 20px 44px; text-align: center; overflow: hidden;
   }
   .section-photo-bg .bg-img { position: absolute; inset: 0; z-index: 0; }
   .section-photo-bg .bg-img img {
     width: 100%; height: 100%; object-fit: cover; object-position: center top;
     filter: brightness(0.5) sepia(0.3);
   }
-  .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.72); }
-  .section-photo-bg .content { position: relative; z-index: 2; width: 100%; }
+  .section-photo-bg .bg-overlay { position: absolute; inset: 0; z-index: 1; background: rgba(245,228,208,0.75); }
+  .section-photo-bg .content { position: relative; z-index: 2; width: 100%; max-width: 480px; margin: 0 auto; }
 
   .gold-border-box {
     border: 2px solid var(--gold);
-    box-shadow: 0 0 0 6px rgba(200,169,110,0.15), 0 4px 24px rgba(139,58,42,0.08);
-    padding: 32px 22px; position: relative; z-index: 1;
-    background: rgba(249,240,232,0.55);
+    box-shadow: 0 0 0 5px rgba(200,169,110,0.12), 0 4px 20px rgba(139,58,42,0.08);
+    padding: 28px 18px; position: relative; z-index: 1;
+    background: rgba(249,240,232,0.6);
   }
 
   /* ── DIVIDER ── */
-  .divider-gold {
-    width: 60px; height: 1px; background: var(--gold); margin: 28px auto;
-  }
+  .divider-gold { width: 50px; height: 1px; background: var(--gold); margin: 22px auto; }
 
-  .couple-script { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 12px; }
-  .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
-  .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 24px; }
-  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem; color: var(--text-dark); margin-bottom: 14px; }
-  .address-text { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 2.6; margin-bottom: 32px; letter-spacing: 0.03em; }
-  .btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+  /* ── TYPOGRAPHY ── */
+  .couple-script { font-family: 'Great Vibes', cursive; font-size: clamp(2rem, 8vw, 2.6rem); color: var(--burgundy); line-height: 1.2; margin-bottom: 10px; }
+  .se-diront { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 300; color: var(--text-mid); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .oui-text { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 20px; }
+  .date-big { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.05rem; color: var(--text-dark); margin-bottom: 12px; }
+  .address-text { font-size: 0.9rem; font-weight: 300; color: var(--text-mid); line-height: 2.4; margin-bottom: 26px; letter-spacing: 0.02em; }
+
+  .btn-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
   .btn-itineraire {
-    display: inline-block; background: var(--burgundy); color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; padding: 12px 28px;
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--burgundy); color: #fff;
+    font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 13px 22px;
     border: none; cursor: pointer; text-decoration: none;
+    min-height: 44px;
+    -webkit-touch-callout: none;
   }
 
-  .ont-la-joie { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 4px; line-height: 1.8; text-align: center; }
-  .le-mariage { font-size: 0.95rem; font-weight: 300; color: var(--text-mid); margin-bottom: 16px; line-height: 1.8; text-align: center; }
-  .hebrew-names { display: flex; justify-content: center; gap: 48px; margin-top: 6px; font-size: 0.95rem; color: var(--text-mid); }
-  .kol-sasson-big { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; color: var(--gold); direction: rtl; line-height: 1.7; margin-bottom: 20px; text-align: center; }
-  .parents-row { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; max-width: 380px; margin: 0 auto 16px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; flex-wrap: wrap; text-align: center; }
+  .ont-la-joie { font-size: 0.9rem; font-weight: 300; color: var(--text-mid); margin-bottom: 4px; line-height: 1.8; text-align: center; }
+  .le-mariage { font-size: 0.9rem; font-weight: 300; color: var(--text-mid); margin-bottom: 14px; line-height: 1.8; text-align: center; }
+  .hebrew-names { display: flex; justify-content: center; gap: 40px; margin-top: 6px; font-size: 0.9rem; color: var(--text-mid); }
+  .kol-sasson-big { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 4.5vw, 1.45rem); color: var(--gold); direction: rtl; line-height: 1.7; margin-bottom: 18px; text-align: center; }
+  .parents-row { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; max-width: 360px; margin: 0 auto 14px; font-size: 0.85rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; text-align: center; }
   .parents-sep { color: var(--gold); font-size: 1rem; }
-  .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; color: var(--burgundy); margin: 18px 0; }
-  .ornament { color: var(--gold); font-size: 1.1rem; margin: 20px 0; display: inline-block; }
-  .invitation-phrase { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-bottom: 20px; text-align: center; }
-
-  /* ── HEURE PRÉCISE ── */
-  .heure-precise {
-    font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.15rem;
-    color: var(--text-dark); margin-bottom: 22px;
-  }
-
-  /* ── VIN D'HONNEUR NOTE ── */
-  .vin-honneur-note {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 0.9rem; font-weight: 300; color: var(--text-mid);
-    line-height: 1.8; margin-top: 14px; padding-top: 14px;
-    border-top: 1px solid rgba(200,169,110,0.35);
-  }
-
-  /* ── NOTE MÉMORIELLE ── */
-  .memorial-note {
-    font-family: 'Cormorant Garamond', serif; font-style: italic;
-    font-size: 0.9rem; font-weight: 300; color: var(--text-mid);
-    line-height: 1.8; margin-top: 20px; padding-top: 16px;
-    border-top: 1px solid rgba(200,169,110,0.35);
-    text-align: center;
-  }
+  .tsniout-note { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.09em; color: var(--burgundy); margin: 16px 0; }
+  .ornament { color: var(--gold); font-size: 1rem; margin: 18px 0; display: inline-block; }
+  .invitation-phrase { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-bottom: 18px; text-align: center; }
+  .heure-precise { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.05rem; color: var(--text-dark); margin-bottom: 20px; }
+  .vin-honneur-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.88rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(200,169,110,0.35); }
+  .memorial-note { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.88rem; font-weight: 300; color: var(--text-mid); line-height: 1.8; margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(200,169,110,0.35); text-align: center; }
 
   /* ── RSVP ── */
-  #rsvp { text-align: center; min-height: 100vh; padding: 60px 28px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .rsvp-title { font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--burgundy); line-height: 1.2; margin-bottom: 6px; }
-  .rsvp-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 400; color: var(--text-mid); letter-spacing: 0.1em; margin-bottom: 8px; }
-  .rsvp-deadline { font-size: 0.85rem; font-weight: 300; color: var(--text-mid); margin-bottom: 28px; }
-  .form-field { width: 100%; max-width: 340px; margin-bottom: 18px; text-align: left; }
-  .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--text-dark); margin-bottom: 6px; letter-spacing: 0.05em; }
+  #rsvp {
+    text-align: center; min-height: 100dvh; padding: 72px 20px 44px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .rsvp-title { font-family: 'Great Vibes', cursive; font-size: clamp(2.2rem, 9vw, 3rem); color: var(--burgundy); line-height: 1.2; margin-bottom: 6px; }
+  .rsvp-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 400; color: var(--text-mid); letter-spacing: 0.1em; margin-bottom: 8px; }
+  .rsvp-deadline { font-size: 0.85rem; font-weight: 300; color: var(--text-mid); margin-bottom: 26px; }
+
+  .form-field { width: 100%; max-width: 360px; margin-bottom: 18px; text-align: left; }
+  .form-label { display: block; font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 500; color: var(--text-dark); margin-bottom: 6px; letter-spacing: 0.05em; }
   .form-label span.req { color: var(--burgundy); }
-  .form-row { display: flex; gap: 10px; max-width: 340px; width: 100%; }
-  .form-row .form-field { flex: 1; }
-  input[type="text"], input[type="number"], textarea {
-    width: 100%; background: rgba(255,255,255,0.5); border: 1px solid #d4b08a;
-    padding: 10px 12px; font-family: 'Cormorant Garamond', serif; font-size: 0.95rem;
+  .form-row { display: flex; gap: 10px; max-width: 360px; width: 100%; }
+  .form-row .form-field { flex: 1; min-width: 0; }
+
+  input[type="text"], input[type="tel"], input[type="number"], textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid #d4b08a;
+    padding: 12px 14px;
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
     color: var(--text-dark); outline: none; border-radius: 2px;
+    -webkit-appearance: none;
+    min-height: 44px;
   }
   input[type="number"] { -moz-appearance: textfield; }
   input[type="number"]::-webkit-outer-spin-button,
   input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-  textarea { height: 80px; resize: vertical; }
-  .radio-group { display: flex; gap: 20px; margin-top: 4px; }
-  .radio-group label {
-    display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 300;
-    color: var(--text-mid); cursor: pointer;
-  }
-  input[type="radio"] { accent-color: var(--burgundy); }
+  textarea { height: 88px; resize: vertical; min-height: 88px; }
 
-  .nb-field {
-    max-height: 0; overflow: hidden; opacity: 0;
-    margin-top: 0;
+  input:focus, textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.85); }
+
+  .radio-group { display: flex; gap: 24px; margin-top: 6px; }
+  .radio-group label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.9rem; font-weight: 300; color: var(--text-mid); cursor: pointer;
+    min-height: 44px;
   }
-  .nb-field.visible { max-height: 80px; opacity: 1; margin-top: 14px; }
+  input[type="radio"] {
+    accent-color: var(--burgundy);
+    width: 18px; height: 18px; cursor: pointer;
+  }
+
+  .nb-field { max-height: 0; overflow: hidden; opacity: 0; margin-top: 0; transition: max-height 0.3s ease, opacity 0.3s ease; }
+  .nb-field.visible { max-height: 90px; opacity: 1; margin-top: 14px; }
 
   .btn-submit {
-    display: inline-block; background: var(--burgundy); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--burgundy); color: #fff;
     font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.12em; text-transform: uppercase; padding: 14px 40px;
-    border: none; cursor: pointer; margin-top: 10px; width: 100%; max-width: 340px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 16px 40px;
+    border: none; cursor: pointer; margin-top: 12px;
+    width: 100%; max-width: 360px; min-height: 52px;
+    -webkit-appearance: none;
   }
   .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn-submit:active { transform: scale(0.98); }
 
-  .ornament-stars {
-    color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 16px 0 6px;
-  }
+  .ornament-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.3em; margin: 14px 0 6px; }
+
   #success-msg {
     display: none; color: var(--burgundy); font-size: 1rem; font-style: italic;
     text-align: center; padding: 20px;
@@ -203,13 +205,32 @@
 
   /* ── BOUTON MUSIQUE ── */
   #music-btn {
-    position: fixed; bottom: 22px; right: 22px; z-index: 200;
-    width: 44px; height: 44px; border-radius: 50%;
+    position: fixed; bottom: 20px; right: 20px; z-index: 200;
+    width: 48px; height: 48px; border-radius: 50%;
     background: var(--burgundy); border: 2px solid rgba(200,169,110,0.5);
     cursor: pointer; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 14px rgba(139,58,42,0.4);
+    box-shadow: 0 2px 16px rgba(139,58,42,0.4);
+    -webkit-tap-highlight-color: transparent;
   }
-  #music-btn svg { width: 17px; height: 17px; fill: #fff; }
+  #music-btn svg { width: 18px; height: 18px; fill: #fff; }
+
+  /* ── SAFE AREA (iPhone notch/home bar) ── */
+  nav { padding-top: max(10px, env(safe-area-inset-top)); padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+  #music-btn { bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px)); right: max(20px, env(safe-area-inset-right)); }
+
+  /* ── TABLETTE / DESKTOP ── */
+  @media (min-width: 600px) {
+    .hero-arch-wrapper { max-width: 320px; }
+    .parents-row { flex-direction: row; gap: 10px; }
+    .gold-border-box { padding: 36px 28px; }
+    .section-photo-bg { padding: 80px 32px 56px; }
+  }
+
+  @media (min-width: 900px) {
+    .hero-arch-wrapper { max-width: 360px; }
+    .gold-border-box { padding: 42px 40px; }
+    nav { padding: 14px 32px; }
+  }
 </style>
 </head>
 <body>
@@ -232,7 +253,6 @@
 
 <!-- SECTION 1 : HERO -->
 <section id="hero">
-
   <div class="hero-arch-wrapper">
     <svg class="hodou-svg" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -282,7 +302,7 @@
       <p class="se-diront">Se diront</p>
       <p class="oui-text">« Oui »</p>
       <p class="date-big" style="margin-top:10px;">le Mardi 6 Octobre 2026</p>
-      <p class="date-big" style="margin-top:10px;">à 13H00</p>
+      <p class="date-big" style="margin-top:8px;">à 13H00</p>
       <p class="address-text">
         Mairie de Gournay-sur-Marne<br>
         Place du Général de Gaulle<br>
@@ -306,10 +326,10 @@
   <div class="content">
     <div class="gold-border-box">
       <p class="kol-sasson-big">קוֹל שָשוֹן וְקוֹל שִמְחָה קוֹל חָתָן וְקוֹל כָּלָה</p>
-      <div style="font-family:'Montserrat',sans-serif;font-size:0.7rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-mid);margin-bottom:18px;">Houppa &amp; Soirée</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:0.68rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-mid);margin-bottom:16px;">Houppa &amp; Soirée</div>
       <div class="parents-row">
         <span>Mme Dray Sylvie Esther</span>
-        <span class="parents-sep"></span>
+        <span class="parents-sep">✦</span>
         <span>Mme Lacides Cathy Esther</span>
       </div>
       <p class="ont-la-joie">ont la joie de vous annoncer</p>
@@ -319,7 +339,7 @@
         <span>שני</span><span>&amp;</span><span>בנימין</span>
       </div>
       <div class="divider-gold"></div>
-      <p class="invitation-phrase">Shany & Benjamin remercient Hachem et ont la joie de vous convier à leur cérémonie religieuse</p>
+      <p class="invitation-phrase">Shany &amp; Benjamin remercient Hachem et ont la joie de vous convier à leur cérémonie religieuse</p>
       <p class="date-big">Jeudi 8 Octobre 2026</p>
       <p class="heure-precise">17h30 précise</p>
       <p class="address-text">Factory 58<br>12 Rue Gutenberg<br>93000 Bobigny</p>
@@ -343,6 +363,7 @@
   <div class="ornament-stars">✦ ✦ ✦</div>
   <p class="rsvp-subtitle">Nous avons hâte de vous retrouver !</p>
   <p class="rsvp-deadline">Merci de confirmer avant le 15 Septembre 2026</p>
+
   <div id="success-msg">Merci ! Votre réponse a bien été enregistrée. ✦<br><br>
     <span style="font-size:0.85rem;color:var(--text-mid);">Vos données ont été transmises.</span>
   </div>
@@ -350,11 +371,11 @@
   <div class="form-row">
     <div class="form-field">
       <label class="form-label">Nom <span class="req">*</span></label>
-      <input type="text" id="nom" placeholder="Nom">
+      <input type="text" id="nom" placeholder="Nom" autocomplete="family-name">
     </div>
     <div class="form-field">
       <label class="form-label">Prénom <span class="req">*</span></label>
-      <input type="text" id="prenom" placeholder="Prénom">
+      <input type="text" id="prenom" placeholder="Prénom" autocomplete="given-name">
     </div>
   </div>
 
@@ -366,7 +387,7 @@
     </div>
     <div class="nb-field" id="nb-mairie-field">
       <label class="form-label" style="margin-top:0;">Nombre de personnes à la Mairie</label>
-      <input type="number" id="nb-mairie" min="1" value="1">
+      <input type="number" id="nb-mairie" min="1" value="1" inputmode="numeric">
     </div>
   </div>
 
@@ -378,7 +399,7 @@
     </div>
     <div class="nb-field" id="nb-houppa-field">
       <label class="form-label" style="margin-top:0;">Nombre de personnes à la Houppa &amp; Soirée</label>
-      <input type="number" id="nb-houppa" min="1" value="1">
+      <input type="number" id="nb-houppa" min="1" value="1" inputmode="numeric">
     </div>
   </div>
 
@@ -387,7 +408,7 @@
     <textarea id="message" placeholder="Votre message…"></textarea>
   </div>
 
-  <button class="btn-submit" onclick="submitRSVP()">Confirmer ma présence</button>
+  <button class="btn-submit" id="submit-btn" onclick="submitRSVP()">Confirmer ma présence</button>
 </section>
 
 <script>
@@ -415,12 +436,8 @@
 
   function toggleNb(type, show) {
     const field = document.getElementById('nb-' + type + '-field');
-    if (show) {
-      field.classList.add('visible');
-    } else {
-      field.classList.remove('visible');
-      document.getElementById('nb-' + type).value = '0';
-    }
+    if (show) { field.classList.add('visible'); }
+    else { field.classList.remove('visible'); document.getElementById('nb-' + type).value = '0'; }
   }
 
   const music = document.getElementById('bg-music');
@@ -434,7 +451,6 @@
       document.getElementById('icon-pause').style.display = 'block';
     }).catch(() => {});
   }
-
   ['scroll','touchstart','click'].forEach(function(evt) {
     window.addEventListener(evt, startMusicOnScroll, { once: true, passive: true });
   });
@@ -468,7 +484,7 @@
       message:  document.getElementById('message').value.trim()
     };
 
-    const btn = document.querySelector('.btn-submit');
+    const btn = document.getElementById('submit-btn');
     btn.textContent = 'Envoi en cours…'; btn.disabled = true;
 
     try {
@@ -479,8 +495,7 @@
       });
     } catch(e) {}
 
-    const msg = document.getElementById('success-msg');
-    msg.style.display = 'block';
+    document.getElementById('success-msg').style.display = 'block';
     btn.style.display = 'none';
   }
 </script>
